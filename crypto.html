@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <div>
+      <h1>aes</h1>
+      <input type="text" class="input1">
+      <button class="button1">click</button>
+   </div>
+   <div>
+      <h1>sign</h1>
+      <p id="signResult"></p>
+   </div>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+   <script>
+      const aes_key = '791701991223a6d7193e964b6690b58a';
+      const sign_key = 'e456f38f675eac049d283cc2147ecd70';
+      const input1 = document.querySelector('.input1');
+      const button1 = document.querySelector('.button1');
+      const input2 = document.querySelector('.input2');
+      const button2 = document.querySelector('.button2');
+
+
+      function wm_aes(input) {
+         var keyHash = CryptoJS.SHA384(aes_key);
+         var key = CryptoJS.enc.Hex.parse(keyHash.toString().substring(0, 64));
+         var iv = CryptoJS.enc.Hex.parse(keyHash.toString().substring(64, 96));
+         var encrypted = CryptoJS.AES.encrypt(input, key, { iv: iv });
+         return encrypted.toString();
+      }
+
+      function wm_sign(body) {
+         var payload = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(JSON.stringify(body)));
+         var signature = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(payload, sign_key));
+         var sign = payload + "." + signature;
+         return sign;
+      }
+
+      button1.addEventListener('click', function () {
+         let inputValue = input1.value;
+         let aesCode = wm_aes(inputValue);
+         console.log(aesCode);
+      });
+
+      let singData = {
+         "request_parameter": {
+            "type": [
+               "register"
+            ]
+         },
+         "timestamp": "2019/01/01 10:00:05"
+      };
+
+      document.querySelector('#signResult').textContent = wm_sign(singData)
+
+      //===帳號1
+      // 0999803025 / 1qaz2wsx
+
+      //===帳號2
+      // 0932359305 / a123456
+
+      //===heroku url
+      // https://boiling-fortress-97054.herokuapp.com
+
+   </script>
+</body>
+
+</html>
