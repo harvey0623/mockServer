@@ -1,5 +1,6 @@
 const yuAxios = require('../../../utility/axios/yujanshin.js');
-const { wm_sign, wm_aes } = require('../../../utility/crypto/yujanshin.js');
+const { wm_sign, wm_aes, decode } = require('../../../utility/crypto/yujanshin.js');
+const axios = require('axios');
 
 const pointDao = {
    async memberPoint() {
@@ -85,6 +86,30 @@ const pointDao = {
             }
          }
       }
+   },
+   async remoteMemberPoint() {
+      let sign = wm_sign({
+         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'api_name': '/member/query_member_point',
+         'request_parameter': {
+           'payload': 'oLe+AadOo+WUjSSi1pzVAsPRQpw+O9SJvHx9R9GO7uc='
+         },
+         'timestamp': '2019/01/01 10:00:05'
+      });
+      return await yuAxios({
+         url: '/relay/send_payload',
+         method: 'post',
+         data: { sign }
+      }).then(res => {
+         let pointResult = res.data;
+         let decodeResult = decode(pointResult.results.payload);
+         pointResult.send_payload = JSON.parse(decodeResult);
+         console.log(pointResult)
+         return pointResult;
+      }).catch(err => {
+         console.log(err);
+         return [];
+      })
    }
 }
 
