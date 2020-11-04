@@ -103,7 +103,31 @@ const pointDao = {
       }).then(res => {
          let pointResult = res.data;
          let decodeResult = decode(pointResult.results.payload);
-         pointResult.send_payload = JSON.parse(decodeResult);
+         pointResult.results.send_payload = JSON.parse(decodeResult);
+         console.log(pointResult)
+         return pointResult;
+      }).catch(err => {
+         console.log(err);
+         return [];
+      })
+   },
+   async remoteMemberPointDetail() {
+      let sign = wm_sign({
+         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'api_name': '/member/query_member_point_detail',
+         'request_parameter': {
+           'payload': 'oLe+AadOo+WUjSSi1pzVAu/B37v7VWq1YyjBCNgbtLZCZjTJaoXFjZgChLJGzktZeaqTPRiuNwIzm/trh/7g0w=='
+         },
+         'timestamp': '2019/01/01 10:00:05'
+      });
+      return await yuAxios({
+         url: '/relay/send_payload',
+         method: 'post',
+         data: { sign }
+      }).then(res => {
+         let pointResult = res.data;
+         let decodeResult = decode(pointResult.results.payload);
+         pointResult.results.send_payload = JSON.parse(decodeResult);
          console.log(pointResult)
          return pointResult;
       }).catch(err => {

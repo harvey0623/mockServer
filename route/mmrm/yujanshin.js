@@ -22,4 +22,10 @@ router.post('/remoteMemberPoint', async(req, res) => {
    res.json(result);
 });
 
+//===遠端會員點數明細
+router.post('/remoteMemberPointDetail', async(req, res) => {
+   let result = await pointDao.remoteMemberPointDetail().then(res => res);
+   res.json(result);
+});
+
 module.exports = router;
