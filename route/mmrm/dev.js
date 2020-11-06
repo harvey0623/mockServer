@@ -1,6 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+//===多品牌api
+router.post('/multiple_brand', (req, res) => {
+   res.json({ 
+      multiple_brand: '1', //0(單品牌) 1(多品牌)
+      open_external_link_hint: ''
+   });
+});
+
 //===條款api
 router.post('/term', (req, res) => {
    res.json({

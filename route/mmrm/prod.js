@@ -11,6 +11,14 @@ const activityDao = require('../../dao/mmrm/activity/index.js');
 const cmsDao = require('../../dao/mmrm/cms/index.js');
 const termDao = require('../../dao/mmrm/term/index.js');
 
+//===多品牌api
+router.post('/multiple_brand', (req, res) => {
+   res.json({ 
+      multiple_brand: '1', //0(單品牌) 1(多品牌)
+      open_external_link_hint: ''
+   });
+});
+
 //===level
 router.post('/level_information', async (req, res) => {
    let result = await levelDao.getLevelInfo(req.body);
