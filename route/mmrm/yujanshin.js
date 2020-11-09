@@ -28,4 +28,10 @@ router.post('/remoteMemberPointDetail', async(req, res) => {
    res.json(result);
 });
 
+//===遠端第三方會員系統
+router.post('/remoteMemberThirty', async(req, res) => {
+   let result = await pointDao.remoteMemberThirty().then(res => res);
+   res.json(result);
+});
+
 module.exports = router;
