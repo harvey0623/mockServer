@@ -41,6 +41,12 @@ router.post('/member_card', async (req, res) => {
    res.json(result);
 });
 
+router.post('/verify_password', async (req, res) => {
+   let result = await memberDao.verifyPassword(req.body);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 401;
+   res.status(statusCode).json(result);
+});
+
 //===point
 router.post('/point_history', async (req, res) => {
    let result = await pointDao.getPointHistory(req.body);
@@ -154,6 +160,11 @@ router.post('/redeem_point_activity', async (req, res) => {
 });
 
 //===cms
+router.post('/cms_list_category_information', async(req, res) => {
+   let result = await cmsDao.listCategory(req.body);
+   res.json(result);
+});
+
 router.post('/search_cms_list_item', async (req, res) => {
    let result = await cmsDao.searchListItem(req.body);
    res.json(result);
