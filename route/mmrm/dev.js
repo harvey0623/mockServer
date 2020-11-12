@@ -1360,5 +1360,119 @@ router.post('/faqPage', (req, res) => {
    }, 2000);
 });
 
+//===書本頁面測試api(含youtube)
+router.post('/cms_book_page', (req, res) => {
+   res.json({
+      "results": {
+         "page": {
+            "page_id": 134,
+            "title": "測試頁面",
+            "content": "<p><strong style=\"color: black;\">活動時間：</strong><span style=\"color: black;\">2020/3/1-2020/5/31</span></p><p><strong style=\"color: black;\">活動內容：</strong><span style=\"color: black;\">刷合庫個人信用卡單筆消費滿1,500元(含)以上享現折200元（不累計折抵）</span></p>",
+            "brand_id": 14,
+            "feature_image": {
+               "width": 915,
+               "height": 600,
+               "url": "https://mmrm-file-uat.wisho2o.com/images/book_media20200506145428_5eb25f249ffe0_915_600.jpeg"
+            },
+            "meta": [
+               {
+                  "key": "活動時間",
+                  "value": "2020/3/1-2020/5/31"
+               }
+            ],
+            "images": [
+               {
+                  "type": "image",
+                  "width": 915,
+                  "height": 600,
+                  "url": "https://mmrm-file-uat.wisho2o.com/images/book_media20200506145428_5eb25f249ffe0_915_600.jpeg"
+               },
+               {
+                  "type": "youtube",
+                  "width": 915,
+                  "height": 600,
+                  "url": "https://www.youtube.com/embed/qHiM6MWrbKM"
+               },
+               {
+                  "type": "image",
+                  "width": 915,
+                  "height": 600,
+                  "url": "https://mmrm-file-uat.wisho2o.com/images/pickup_activity20200821103845_5f3f33b5358c8_960_600.jpeg"
+               },
+               {
+                  "type": "youtube",
+                  "width": 915,
+                  "height": 600,
+                  "url": "https://www.youtube.com/embed/ljsioLig7jE"
+               },
+            ],
+            "link_blocks": [
+               {
+                  "title": "相關資訊",
+                  "links": [
+                     {
+                        "link_id": 314,
+                        "title": "前往官網",
+                        "sub_title": "",
+                        "type": "hyperlink",
+                        "book_id": null,
+                        "hyperlink_open_type": "browser",
+                        "hyperlink_url": "https://www.tasty.com.tw/",
+                        "hyperlink_alert": null,
+                        "hyperlink_open_with_password": false,
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "hyperlink_with_parameters": false
+                     },
+                     {
+                        "link_id": 315,
+                        "title": "我的券匣",
+                        "sub_title": "",
+                        "type": "app",
+                        "book_id": null,
+                        "hyperlink_open_type": null,
+                        "hyperlink_url": "mmrm://my_coupon",
+                        "hyperlink_alert": null,
+                        "hyperlink_open_with_password": false,
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "hyperlink_with_parameters": false
+                     }
+                  ]
+               }
+            ],
+            "bottom_link_block": {
+               "title": "菜單資訊",
+               "links": [
+                  {
+                     "link_id": 316,
+                     "title": "最新菜單",
+                     "sub_title": "",
+                     "type": "app",
+                     "book_id": null,
+                     "hyperlink_open_type": null,
+                     "hyperlink_url": "mmrm://edm",
+                     "hyperlink_alert": null,
+                     "hyperlink_open_with_password": false,
+                     "feature_image": {
+                        "width": null,
+                        "height": null,
+                        "url": null
+                     },
+                     "hyperlink_with_parameters": false
+                  }
+               ]
+            }
+         }
+      },
+   })
+});
+
 
 module.exports = router;
