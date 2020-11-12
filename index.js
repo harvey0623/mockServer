@@ -24,6 +24,6 @@ app.use('/mmrmProd', mmrmProd);
 app.use('/yujanshin', yujanshin);
 
 app.use((req, res) => {
-   res.write('<h1>Hello world ~</h1>');
+   res.write('<h1>Hello world test ~</h1>');
    res.end();
 });
