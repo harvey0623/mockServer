@@ -1474,8 +1474,4 @@ router.post('/cms_book_page', (req, res) => {
    })
 });
 
-
-console.log(';aaaaa')
-
-
 module.exports = router;
