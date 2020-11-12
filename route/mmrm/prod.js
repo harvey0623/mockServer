@@ -132,7 +132,7 @@ router.post('/coupon_activity_information', async (req, res) => {
 
 router.post('/redeem_coupon_activity', async (req, res) => {
    let result = await activityDao.redeemCouponActivity(req.body);
-   let statusCode = result.rcrm.RC === 'C01' ? 200 : 401
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
    res.status(statusCode).json(result);
 });
 
