@@ -1360,6 +1360,59 @@ router.post('/faqPage', (req, res) => {
    }, 2000);
 });
 
+//===書本api
+router.post('/cms_book', (req, res) => {
+   res.json({
+      "results": {
+         "book": {
+            "title": "測試書本",
+            "chapters": [
+               {
+                  "title": "測試章節",
+                  "pages": [
+                     {
+                        "page_id": 134,
+                        "title": "測試頁面",
+                        "feature_image": {
+                           "width": 915,
+                           "height": 600,
+                           "url": "https://mmrm-file-uat.wisho2o.com/images/book_media20200506145428_5eb25f249ffe0_915_600.jpeg"
+                        },
+                        "page_has_detail": true
+                     }
+                  ]
+               },
+               {
+                  "title": "第二章",
+                  "pages": [
+                     {
+                        "page_id": 135,
+                        "title": "第二章第一頁",
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "page_has_detail": true
+                     },
+                     {
+                        "page_id": 136,
+                        "title": "2-2",
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "page_has_detail": true
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   })
+});
+
 //===書本頁面測試api(含youtube)
 router.post('/cms_book_page', (req, res) => {
    res.json({
@@ -1489,7 +1542,8 @@ router.post('/cms_book_page', (req, res) => {
                      "hyperlink_with_parameters": false
                   }
                ]
-            }
+            },
+            // bottom_link_block: null
          }
       },
    })
