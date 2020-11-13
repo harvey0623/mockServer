@@ -1367,7 +1367,7 @@ router.post('/cms_book_page', (req, res) => {
          "page": {
             "page_id": 134,
             "title": "測試頁面",
-            "content": "<p><strong style=\"color: black;\">活動時間：</strong><span style=\"color: black;\">2020/3/1-2020/5/31</span></p><p><strong style=\"color: black;\">活動內容：</strong><span style=\"color: black;\">刷合庫個人信用卡單筆消費滿1,500元(含)以上享現折200元（不累計折抵）</span></p>",
+            "content": "",
             "brand_id": 14,
             "feature_image": {
                "width": 915,
@@ -1378,6 +1378,10 @@ router.post('/cms_book_page', (req, res) => {
                {
                   "key": "活動時間",
                   "value": "2020/3/1-2020/5/31"
+               },
+               {
+                  "key": "活動門市",
+                  "value": "全門市適用"
                }
             ],
             "images": [
@@ -1408,12 +1412,12 @@ router.post('/cms_book_page', (req, res) => {
             ],
             "link_blocks": [
                {
-                  "title": "相關資訊",
+                  "title": "相關測試",
                   "links": [
                      {
                         "link_id": 314,
                         "title": "前往官網",
-                        "sub_title": "",
+                        "sub_title": "今天天氣好",
                         "type": "hyperlink",
                         "book_id": null,
                         "hyperlink_open_type": "browser",
@@ -1430,7 +1434,7 @@ router.post('/cms_book_page', (req, res) => {
                      {
                         "link_id": 315,
                         "title": "我的券匣",
-                        "sub_title": "",
+                        "sub_title": "hello world",
                         "type": "app",
                         "book_id": null,
                         "hyperlink_open_type": null,
@@ -1443,9 +1447,26 @@ router.post('/cms_book_page', (req, res) => {
                            "url": null
                         },
                         "hyperlink_with_parameters": false
+                     },
+                     {
+                        "link_id": 315,
+                        "title": "我的書本",
+                        "sub_title": "book",
+                        "type": "book",
+                        "book_id": 77,
+                        "hyperlink_open_type": null,
+                        "hyperlink_url": "mmrm://my_coupon",
+                        "hyperlink_alert": null,
+                        "hyperlink_open_with_password": false,
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "hyperlink_with_parameters": false
                      }
                   ]
-               }
+               },
             ],
             "bottom_link_block": {
                "title": "菜單資訊",
