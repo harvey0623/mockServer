@@ -13,7 +13,7 @@ const pointDao = {
             "api_name": "<predefined_api_name>",
             "payload": "",
             send_payload: {
-               "member_point_detail": [
+               "member_point": [
                   {
                      "ProgramNo": "abc",
                      "ProgramNa": "a點",
