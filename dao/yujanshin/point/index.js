@@ -86,12 +86,12 @@ const pointDao = {
          }
       }
    },
-   async remoteMemberPoint() {
+   async remoteMemberPoint({ payload }) {
       let sign = wm_sign({
          'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
          'api_name': '/member/query_member_point',
          'request_parameter': {
-           'payload': 'oLe+AadOo+WUjSSi1pzVAsPRQpw+O9SJvHx9R9GO7uc='
+           'payload': payload
          },
          'timestamp': '2019/01/01 10:00:05'
       });
@@ -103,19 +103,19 @@ const pointDao = {
          let pointResult = res.data;
          let decodeResult = decode(pointResult.results.payload);
          pointResult.results.send_payload = JSON.parse(decodeResult);
-         console.log(pointResult)
+         // console.log(pointResult)
          return pointResult;
       }).catch(err => {
          console.log(err);
          return [];
       })
    },
-   async remoteMemberPointDetail() {
+   async remoteMemberPointDetail({ payload }) {
       let sign = wm_sign({
          'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
          'api_name': '/member/query_member_point_detail',
          'request_parameter': {
-           'payload': 'oLe+AadOo+WUjSSi1pzVAu/B37v7VWq1YyjBCNgbtLZCZjTJaoXFjZgChLJGzktZeaqTPRiuNwIzm/trh/7g0w=='
+           'payload': payload
          },
          'timestamp': '2019/01/01 10:00:05'
       });
@@ -127,7 +127,7 @@ const pointDao = {
          let pointResult = res.data;
          let decodeResult = decode(pointResult.results.payload);
          pointResult.results.send_payload = JSON.parse(decodeResult);
-         console.log(pointResult)
+         // console.log(pointResult)
          return pointResult;
       }).catch(err => {
          console.log(err);

@@ -18,13 +18,13 @@ router.post('/query_member_point_detail', async(req, res) => {
 
 //===遠端會員點數
 router.post('/remoteMemberPoint', async(req, res) => {
-   let result = await pointDao.remoteMemberPoint().then(res => res);
+   let result = await pointDao.remoteMemberPoint(req.body).then(res => res);
    res.json(result);
 });
 
 //===遠端會員點數明細
 router.post('/remoteMemberPointDetail', async(req, res) => {
-   let result = await pointDao.remoteMemberPointDetail().then(res => res);
+   let result = await pointDao.remoteMemberPointDetail(req.body).then(res => res);
    res.json(result);
 });
 
