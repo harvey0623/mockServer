@@ -34,6 +34,36 @@ const social = {
       }).catch(err => {
          return { status: false, profile: null };
       });
+   },
+   async getFbToken(code) {
+      return await axios({
+         url: 'https://graph.facebook.com/v9.0/oauth/access_token',
+         method: 'get',
+         params: {
+            client_id: process.env.FB_CLIENT_ID,
+            redirect_uri: process.env.FB_REDIRECT_URI,
+            client_secret: process.env.FB_CLIENT_SECRET,
+            code
+         },
+      }).then(res => {
+         return { status: true, access_token: res.data.access_token };
+      }).catch(err => {
+         return { status: false, access_token: '' };
+      });
+   },
+   async getFbProfile(access_token) {
+      return await axios({
+         url: 'https://graph.facebook.com/me',
+         method: 'get',
+         params: { 
+            access_token,
+            fields: 'id,name,email,picture.width(640).height(640)'
+         }
+      }).then(res => {
+         return { status: true, profile: res.data }
+      }).catch(err => {
+         return { status: false, profile: null }
+      });
    }
 }
 
