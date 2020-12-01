@@ -4,7 +4,8 @@ const social = require('../../dao/social/index');
 
 let userInfo = {
    name: '',
-   picture: ''
+   picture: '',
+   email: ''
 };
 
 router.get('/login', (req, res) => {
