@@ -3,7 +3,7 @@ const router = express.Router();
 
 //===多品牌api
 router.post('/multiple_brand', (req, res) => {
-   res.json({ 
+   res.json({
       multiple_brand: '1', //0(單品牌) 1(多品牌)
       open_external_link_hint: ''
    });
@@ -1254,31 +1254,67 @@ router.post('/faqList', (req, res) => {
       "results": {
          "search_cms_list_item_results": [
             {
-               "brand_id": 1,
-               "title": "周年慶活動",
-               "sub_title": "2019/01/01 20:30:00",
+               "release_starts_at": "2020/12/01 00:00:00",
+               "release_ends_at": "2021/01/01 23:59:59",
+               "brand_id": 2,
+               "title": "FAQ",
+               "sub_title": null,
                "feature_image": {
-                  "width": 960,
-                  "height": 1554,
-                  "url": "http://dev.wishmobile.net/app_image/960x1554.png"
+                  "width": 1366,
+                  "height": 768,
+                  "url": "https://yjs-file-uat.wisho2o.com/images/cms20201201161235_5fc5faf306d9f_1366_768.jpeg"
+               },
+               "link_block": {
+                  "title": "請選擇欲前往的連結",
+                  "links": [
+                     {
+                        "link_id": 6,
+                        "title": "Google",
+                        "sub_title": "",
+                        "type": "hyperlink",
+                        "book_id": null,
+                        "hyperlink_open_type": "webview",
+                        "hyperlink_url": "http://www.google.com.tw",
+                        "hyperlink_alert": null,
+                        "hyperlink_open_with_password": false,
+                        "feature_image": {
+                           "width": null,
+                           "height": null,
+                           "url": null
+                        },
+                        "hyperlink_with_parameters": false
+                     }
+                  ]
+               }
+            },
+            {
+               "release_starts_at": "2020/12/02 00:00:00",
+               "release_ends_at": "2099/01/02 23:59:59",
+               "brand_id": 2,
+               "title": "FAQ_2",
+               "sub_title": null,
+               "feature_image": {
+                  "width": 283,
+                  "height": 237,
+                  "url": "https://yjs-file-uat.wisho2o.com/images/cms20201202161531_5fc74d23eb276_283_237.png"
                },
                "link_block": {
                   "title": "",
                   "links": [
                      {
-                        "link_id": 13,
-                        "title": "歡慶資訊",
+                        "link_id": 4,
+                        "title": "FAQ_2",
                         "sub_title": "",
                         "type": "book",
-                        "book_id": 10,
+                        "book_id": 5,
                         "hyperlink_open_type": null,
                         "hyperlink_url": null,
                         "hyperlink_alert": null,
                         "hyperlink_open_with_password": false,
                         "feature_image": {
-                           "width": 300,
-                           "height": 285,
-                           "url": "http://dev.wishmobile.net/app_image/300x285.png"
+                           "width": null,
+                           "height": null,
+                           "url": null
                         },
                         "hyperlink_with_parameters": false
                      }
