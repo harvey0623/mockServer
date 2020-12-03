@@ -64,6 +64,35 @@ const social = {
       }).catch(err => {
          return { status: false, profile: null }
       });
+   },
+   async getGoogleToken(code) {
+      return await axios({
+         url: 'https://oauth2.googleapis.com/token',
+         method: 'post',
+         headers: { 'content-type': 'application/x-www-form-urlencoded' },
+         data: qs.stringify({
+            grant_type: 'authorization_code',
+            code,
+            redirect_uri: process.env.GOOGLE_REDIRECT_URI,
+            client_id: process.env.GOOGLE_CLIENT_ID,
+            client_secret: process.env.GOOGLE_CLIENT_SECRET
+         })
+      }).then(res => {
+         return { status: true, access_token: res.data.access_token };
+      }).catch(err => {
+         return { status: false, access_token: '' };
+      });
+   },
+   async getGoogleProfile(access_token) {
+      return await axios({
+         url: 'https://www.googleapis.com/oauth2/v3/userinfo',
+         method: 'get',
+         params: { access_token }
+      }).then(res => {
+         return { status: true, profile: res.data };
+      }).catch(err => {
+         return { status: false, profile: null };
+      });
    }
 }
 

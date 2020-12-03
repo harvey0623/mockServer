@@ -15,6 +15,7 @@ const mmrmProd = require('./route/mmrm/prod.js');
 const yujanshin = require('./route/mmrm/yujanshin.js');
 const line = require('./route/line/index.js');
 const fb = require('./route/fb/index.js');
+const google = require('./route/google/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -31,13 +32,15 @@ app.use('/mmrmProd', mmrmProd);
 app.use('/yujanshin', yujanshin);
 app.use('/line', line);
 app.use('/fb', fb);
+app.use('/google', google);
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.get('/socialLogin', (req, res) => {
    res.render('socialLogin', {
       locals: { 
          lineLoingUrl: '/line/login',
-         fbLoginUrl: '/fb/login'
+         fbLoginUrl: '/fb/login',
+         googleLoginUrl: '/google/login'
       }
    });
 });
