@@ -1253,40 +1253,40 @@ router.post('/faqList', (req, res) => {
    res.json({
       "results": {
          "search_cms_list_item_results": [
-            {
-               "release_starts_at": "2020/12/01 00:00:00",
-               "release_ends_at": "2021/01/01 23:59:59",
-               "brand_id": 2,
-               "title": "FAQ",
-               "sub_title": null,
-               "feature_image": {
-                  "width": 1366,
-                  "height": 768,
-                  "url": "https://yjs-file-uat.wisho2o.com/images/cms20201201161235_5fc5faf306d9f_1366_768.jpeg"
-               },
-               "link_block": {
-                  "title": "請選擇欲前往的連結",
-                  "links": [
-                     {
-                        "link_id": 6,
-                        "title": "Google",
-                        "sub_title": "",
-                        "type": "hyperlink",
-                        "book_id": null,
-                        "hyperlink_open_type": "webview",
-                        "hyperlink_url": "http://www.google.com.tw",
-                        "hyperlink_alert": null,
-                        "hyperlink_open_with_password": false,
-                        "feature_image": {
-                           "width": null,
-                           "height": null,
-                           "url": null
-                        },
-                        "hyperlink_with_parameters": false
-                     }
-                  ]
-               }
-            },
+            // {
+            //    "release_starts_at": "2020/12/01 00:00:00",
+            //    "release_ends_at": "2021/01/01 23:59:59",
+            //    "brand_id": 2,
+            //    "title": "FAQ",
+            //    "sub_title": null,
+            //    "feature_image": {
+            //       "width": 1366,
+            //       "height": 768,
+            //       "url": "https://yjs-file-uat.wisho2o.com/images/cms20201201161235_5fc5faf306d9f_1366_768.jpeg"
+            //    },
+            //    "link_block": {
+            //       "title": "請選擇欲前往的連結",
+            //       "links": [
+            //          {
+            //             "link_id": 6,
+            //             "title": "Google",
+            //             "sub_title": "",
+            //             "type": "hyperlink",
+            //             "book_id": null,
+            //             "hyperlink_open_type": "webview",
+            //             "hyperlink_url": "http://www.google.com.tw",
+            //             "hyperlink_alert": null,
+            //             "hyperlink_open_with_password": false,
+            //             "feature_image": {
+            //                "width": null,
+            //                "height": null,
+            //                "url": null
+            //             },
+            //             "hyperlink_with_parameters": false
+            //          }
+            //       ]
+            //    }
+            // },
             {
                "release_starts_at": "2020/12/02 00:00:00",
                "release_ends_at": "2099/01/02 23:59:59",
