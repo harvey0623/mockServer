@@ -18,7 +18,7 @@ router.get('/login', (req, res) => {
 router.get('/token', async (req, res) => {
    let code = req.query.code;
    let error = req.query.error;
-   if (error) return res.redirect('/line');
+   if (error) return res.redirect('/socialLogin');
    let tokenResult = await social.getFbToken(code).then(res => res);
    if (!tokenResult.status) return;
    let { status, profile } = await social.getFbProfile(tokenResult.access_token).then(res => res);
@@ -28,7 +28,7 @@ router.get('/token', async (req, res) => {
       userInfo.email = profile.email;
       res.redirect('/fb/login_result');
    } else {
-      res.redirect('/line');
+      res.redirect('/socialLogin');
    }
 });
 

@@ -26,7 +26,7 @@ router.get('/token', async (req, res) => {
       userInfo.email = profile.email;
       res.redirect('/line/login_result');
    } else {
-      res.redirect('/line');
+      res.redirect('/socialLogin');
    }
 });
 
