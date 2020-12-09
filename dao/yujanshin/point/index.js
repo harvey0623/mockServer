@@ -148,9 +148,14 @@ const pointDao = {
          method: 'post',
          data: { sign }
       }).then(res => {
-         console.log(res.data);
+         let memberResult = res.data;
+         let decodeResult = decode(memberResult.results.payload);
+         memberResult.results.send_payload = JSON.parse(decodeResult);
+         // console.log(memberResult)
+         return memberResult;
       }).catch(err => {
          console.log(err);
+         return null;
       })
    },
    async remoteMemberThirty() { //第三方會員系統
