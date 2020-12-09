@@ -134,6 +134,25 @@ const pointDao = {
          return [];
       })
    },
+   async remoteMemberInfo({ payload }) { //升等條件、升等進度
+      let sign = wm_sign({
+         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'api_name': '/member/query_member_info',
+         'request_parameter': {
+           'payload': payload
+         },
+         'timestamp': '2019/01/01 10:00:05'
+      });
+      return await yuAxios({
+         url: '/relay/send_payload',
+         method: 'post',
+         data: { sign }
+      }).then(res => {
+         console.log(res.data);
+      }).catch(err => {
+         console.log(err);
+      })
+   },
    async remoteMemberThirty() { //第三方會員系統
       let sign = wm_sign({
          'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
