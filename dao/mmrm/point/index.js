@@ -1,5 +1,5 @@
 const mmrmAxios = require('../../../utility/axios/mmrm.js');
-const wmSign = require('../../../utility/crypto/index.js');
+const wmSign = require('../../../utility/crypto/mmrm.js');
 const pointDao = {
    async getPointHistory(payload) {
       let signText = wmSign({

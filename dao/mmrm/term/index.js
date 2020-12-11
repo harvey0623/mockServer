@@ -1,5 +1,5 @@
 const mmrmAxios = require('../../../utility/axios/mmrm.js');
-const wmSign = require('../../../utility/crypto/index.js');
+const wmSign = require('../../../utility/crypto/mmrm.js');
 const termDao = {
    async term(payload) {
       let signText = wmSign({
