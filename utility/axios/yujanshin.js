@@ -4,8 +4,8 @@ const yuAxios = axios.create({
    headers: {
       'Content-Type': 'application/json',
       'Accept-Language': 'zh-TW',
-      'app-id': 'fad8d355365d9b3e32df7efe8dc9e25b',
-      'device-uuid': '123'
+      'app-id': process.env.YUJANSHIN_APP_ID,
+      'device-uuid': process.env.YUJANSHIN_DEVICE_UUID
    }
 });
 

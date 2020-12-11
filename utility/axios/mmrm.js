@@ -4,10 +4,9 @@ const mmrmAxios = axios.create({
    headers: {
       'Content-Type': 'application/json',
       'language': 'zh_TW',
-      'app-id': '999ca0e82be8da98d769d138ab9a5b09',
-      'device-uuid': '123e4567-e89b-12d3-a456-426655440000'
+      'app-id': process.env.MMRM_APP_ID,
+      'device-uuid': process.env.MMRM_DEVICE_UUID
    },
 });
-
 
 module.exports = mmrmAxios;

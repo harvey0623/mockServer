@@ -88,7 +88,7 @@ const pointDao = {
    },
    async remoteMemberPoint({ payload }) {
       let sign = wm_sign({
-         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'member_access_token': process.env.YUJANSHIN_ACCESS_TOKEN,
          'api_name': '/member/query_member_point',
          'request_parameter': {
            'payload': payload
@@ -112,7 +112,7 @@ const pointDao = {
    },
    async remoteMemberPointDetail({ payload }) {
       let sign = wm_sign({
-         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'member_access_token': process.env.YUJANSHIN_ACCESS_TOKEN,
          'api_name': '/member/query_member_point_detail',
          'request_parameter': {
            'payload': payload
@@ -136,7 +136,7 @@ const pointDao = {
    },
    async remoteMemberInfo({ payload }) { //升等條件、升等進度
       let sign = wm_sign({
-         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'member_access_token': process.env.YUJANSHIN_ACCESS_TOKEN,
          'api_name': '/member/query_member_info',
          'request_parameter': {
            'payload': payload
@@ -160,7 +160,7 @@ const pointDao = {
    },
    async remoteMemberThirty() { //第三方會員系統
       let sign = wm_sign({
-         'member_access_token': process.env.YU_MMRM_ACCESS_TOKEN,
+         'member_access_token': process.env.YUJANSHIN_ACCESS_TOKEN,
          'api_name': '/member/check_third_party_crm_data',
          'request_parameter': {
            'payload': '7zNApflhXKbY1AGckmjoMro3PYrM9mmMKjmRvh37sqI='
