@@ -1,6 +1,6 @@
 const CryptoJS = require("crypto-js");
-const sign_key = 'f699a50421f1f84edebde4388549e085';
-const aes_key = '2b371c478862936fc04c91d613126e67';
+const sign_key = '6916fb7ad79dad7650a0135a34333d4a';
+const aes_key = 'e502ac1b5d82a009b1bbe2f33915554c';
 
 const wm_sign = function(body) {
    var payload = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(JSON.stringify(body)));
