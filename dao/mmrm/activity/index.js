@@ -1,5 +1,7 @@
 const mmrmAxios = require('../../../utility/axios/mmrm.js');
 const wmSign = require('../../../utility/crypto/mmrm.js');
+const isDev = process.env.NODE_ENV === 'dev';
+const access_token = isDev ? process.env.MMRM_ACCESS_TOKEN : process.env.CUSTOM_ACCESS_TOKEN;
 const activityDao = {
    async briefCouponActivity() {
       let signText = wmSign({
@@ -48,7 +50,7 @@ const activityDao = {
    },
    async redeemCouponActivity(payload) {
       let signText = wmSign({
-         "member_access_token": process.env.MMRM_ACCESS_TOKEN,
+         "member_access_token": access_token,
          "request_parameter": { ...payload },
          "timestamp": "2019/01/01 10:00:05"
       });
@@ -109,7 +111,7 @@ const activityDao = {
    },
    async redeemPointActivity(payload) {
       let signText = wmSign({
-         "member_access_token": process.env.MMRM_ACCESS_TOKEN,
+         "member_access_token": access_token,
          "request_parameter": { ...payload },
          "timestamp": "2019/01/01 10:00:05"
       });
