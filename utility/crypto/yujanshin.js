@@ -1,6 +1,6 @@
 const CryptoJS = require("crypto-js");
-const sign_key = process.env.YUJANSHIN_SIGN_KEY;
-const aes_key = process.env.YUJANSHIN_AES_KEY;
+const sign_key = process.env.CUSTOM_SIGN_KEY;
+const aes_key = process.env.CUSTOM_AES_KEY;
 
 const wm_sign = function(body) {
    var payload = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(JSON.stringify(body)));
