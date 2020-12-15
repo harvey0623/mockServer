@@ -43,7 +43,7 @@ router.post('/member_card', async (req, res) => {
 
 router.post('/verify_password', async (req, res) => {
    let result = await memberDao.verifyPassword(req.body);
-   let statusCode = result.rcrm.RC === 'C01' ? 200 : 401;
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
    res.status(statusCode).json(result);
 });
 

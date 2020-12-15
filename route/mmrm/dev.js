@@ -1562,9 +1562,26 @@ router.post('/cms_book_page', (req, res) => {
                "links": [
                   {
                      "link_id": 316,
-                     "title": "最新菜單",
+                     "title": "a菜單",
                      "sub_title": "",
                      "type": "app",
+                     "book_id": null,
+                     "hyperlink_open_type": null,
+                     "hyperlink_url": "mmrm://edm",
+                     "hyperlink_alert": null,
+                     "hyperlink_open_with_password": false,
+                     "feature_image": {
+                        "width": null,
+                        "height": null,
+                        "url": null
+                     },
+                     "hyperlink_with_parameters": false
+                  },
+                  {
+                     "link_id": 316,
+                     "title": "b菜單",
+                     "sub_title": "",
+                     "type": "hyperlink",
                      "book_id": null,
                      "hyperlink_open_type": null,
                      "hyperlink_url": "mmrm://edm",
