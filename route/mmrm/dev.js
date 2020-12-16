@@ -1274,7 +1274,7 @@ router.post('/faqList', (req, res) => {
                         "type": "hyperlink",
                         "book_id": null,
                         "hyperlink_open_type": "webview",
-                        "hyperlink_url": "https://www.google.com/",
+                        "hyperlink_url": "http://www.google.com.tw",
                         "hyperlink_alert": null,
                         "hyperlink_open_with_password": false,
                         "feature_image": {
