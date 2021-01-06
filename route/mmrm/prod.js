@@ -10,6 +10,7 @@ const couponDao = require('../../dao/mmrm/coupon/index.js');
 const activityDao = require('../../dao/mmrm/activity/index.js');
 const cmsDao = require('../../dao/mmrm/cms/index.js');
 const termDao = require('../../dao/mmrm/term/index.js');
+const menuDao = require('../../dao/mmrm/menu/index.js');
 
 //===多品牌api
 router.post('/multiple_brand', (req, res) => {
@@ -154,7 +155,6 @@ router.post('/point_activity_information', async (req, res) => {
 router.post('/redeem_point_activity', async (req, res) => {
    console.log(req.body);
    let result = await activityDao.redeemPointActivity(req.body);
-   console.log(result);
    let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
    res.status(statusCode).json(result);
 });
@@ -183,6 +183,22 @@ router.post('/cms_book_page', async (req, res) => {
 //===term
 router.post('/brief_term', async (req, res) => {
    let result = await termDao.term(req.body);
+   res.json(result);
+});
+
+//===menu
+router.post('/brief_menu_list', async (req, res) => {
+   let result = await menuDao.getList(req.body).then(res => res);
+   res.json(result);
+});
+
+router.post('/brief_menu_item_category', async (req, res) => {
+   let result = await menuDao.getCategory(req.body).then(res => res);
+   res.json(result);
+});
+
+router.post('/menu_item_information', async (req, res) => {
+   let result = await menuDao.getItemInfo(req.body).then(res => res);
    res.json(result);
 });
 
