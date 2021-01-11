@@ -1602,4 +1602,147 @@ router.post('/cms_book_page', (req, res) => {
    })
 });
 
+//===cms會員訊息
+router.post('/public_message_inbox', async (req, res) => {
+   let message = [];
+   for (let i = 1; i <= 10; i++) {
+      message.push({
+         "datetime": "2019/01/01 20:30:00",
+         "brand_id": 1,
+         "title": "public message",
+         "sub_title": "hello world",
+         "feature_image": {
+            "width": 960,
+            "height": 600,
+            "url": "http://dev.wishmobile.net/app_image/960x600.png"
+         },
+         "link_block": {
+            "title": "",
+            "links": [
+               {
+                  "link_id": 13,
+                  "title": "歡慶資訊",
+                  "sub_title": "",
+                  "type": "book",
+                  "book_id": 77,
+                  "hyperlink_open_type": null,
+                  "hyperlink_url": null,
+                  "hyperlink_alert": null,
+                  "hyperlink_open_with_password": false,
+                  "feature_image": {
+                     "width": 300,
+                     "height": 285,
+                     "url": "http://dev.wishmobile.net/app_image/300x285.png"
+                  },
+                  "hyperlink_with_parameters": false
+               }
+            ]
+         }
+      })
+   };
+   setTimeout(() => {
+      res.json({
+         next: null,
+         results: {
+            message
+         }
+      });
+   }, 1000)
+});
+
+router.post('/member_message_inbox', async (req, res) => {
+   let message = [];
+   for (let i = 1; i <= 10; i++) {
+      message.push({
+         "datetime": "2019/01/01 20:30:00",
+         "brand_id": 1,
+         "title": "member message",
+         "summary": "member summary",
+         "sub_title": "hello world",
+         "feature_image": {
+            "width": 960,
+            "height": 600,
+            "url": "http://dev.wishmobile.net/app_image/960x600.png"
+         },
+         "link_block": {
+            "title": "",
+            "links": [
+               {
+                  "link_id": 13,
+                  "title": "歡慶資訊",
+                  "sub_title": "",
+                  "type": "book",
+                  "book_id": 77,
+                  "hyperlink_open_type": null,
+                  "hyperlink_url": null,
+                  "hyperlink_alert": null,
+                  "hyperlink_open_with_password": false,
+                  "feature_image": {
+                     "width": 300,
+                     "height": 285,
+                     "url": "http://dev.wishmobile.net/app_image/300x285.png"
+                  },
+                  "hyperlink_with_parameters": false
+               }
+            ]
+         }
+      })
+   };
+   setTimeout(() => {
+      res.json({
+         next: 1,
+         results: {
+            message
+         }
+      });
+   }, 1000)
+});
+
+router.post('/member_notification_inbox', async (req, res) => {
+   let message = [];
+   for (let i = 1; i <= 10; i++) {
+      message.push({
+         "datetime": "2019/01/01 20:30:00",
+         "brand_id": 1,
+         "title": "notify message",
+         "sub_title": "hello world",
+         "feature_image": {
+            "width": 960,
+            "height": 600,
+            "url": "http://dev.wishmobile.net/app_image/960x600.png"
+         },
+         "link_block": {
+            "title": "",
+            "links": [
+               {
+                  "link_id": 13,
+                  "title": "歡慶資訊",
+                  "sub_title": "",
+                  "type": "book",
+                  "book_id": 77,
+                  "hyperlink_open_type": null,
+                  "hyperlink_url": null,
+                  "hyperlink_alert": null,
+                  "hyperlink_open_with_password": false,
+                  "feature_image": {
+                     "width": 300,
+                     "height": 285,
+                     "url": "http://dev.wishmobile.net/app_image/300x285.png"
+                  },
+                  "hyperlink_with_parameters": false
+               }
+            ]
+         }
+      })
+   };
+   setTimeout(() => {
+      res.json({
+         next: null,
+         results: {
+            notification: message
+         }
+      });
+   }, 1000)
+});
+
 module.exports = router;
