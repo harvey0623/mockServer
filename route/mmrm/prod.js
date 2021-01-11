@@ -11,6 +11,7 @@ const activityDao = require('../../dao/mmrm/activity/index.js');
 const cmsDao = require('../../dao/mmrm/cms/index.js');
 const termDao = require('../../dao/mmrm/term/index.js');
 const menuDao = require('../../dao/mmrm/menu/index.js');
+const notifyDao = require('../../dao/mmrm/notify/index.js');
 
 //===多品牌api
 router.post('/multiple_brand', (req, res) => {
@@ -177,6 +178,22 @@ router.post('/cms_book', async (req, res) => {
 
 router.post('/cms_book_page', async (req, res) => {
    let result = await cmsDao.cmsBookPage(req.body);
+   res.json(result);
+});
+
+router.post('/public_message_inbox', async (req, res) => {
+   let result = await cmsDao.publicMessage(req.body);
+   res.json(result);
+});
+
+router.post('/member_message_inbox', async (req, res) => {
+   let result = await cmsDao.memberMessage(req.body);
+   res.json(result);
+});
+
+//===notify
+router.post('/member_notification_inbox', async (req, res) => {
+   let result = await notifyDao.memberNotify(req.body);
    res.json(result);
 });
 
