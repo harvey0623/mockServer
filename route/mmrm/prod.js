@@ -124,7 +124,8 @@ router.post('/brief_coupon_activity_type', async (req, res) => {
 
 router.post('/search_coupon_activity', async (req, res) => {
    let result = await activityDao.searchCouponActivity(req.body);
-   res.json(result);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
 });
 
 router.post('/coupon_activity_information', async (req, res) => {
