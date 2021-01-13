@@ -146,7 +146,8 @@ router.post('/brief_point_activity_type', async (req, res) => {
 
 router.post('/search_point_activity', async (req, res) => {
    let result = await activityDao.searchPointActivity(req.body);
-   res.json(result);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
 });
 
 router.post('/point_activity_information', async (req, res) => {
