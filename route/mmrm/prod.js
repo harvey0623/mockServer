@@ -12,6 +12,7 @@ const cmsDao = require('../../dao/mmrm/cms/index.js');
 const termDao = require('../../dao/mmrm/term/index.js');
 const menuDao = require('../../dao/mmrm/menu/index.js');
 const notifyDao = require('../../dao/mmrm/notify/index.js');
+const missionDao = require('../../dao/mmrm/mission/index.js');
 
 //===多品牌api
 router.post('/multiple_brand', (req, res) => {
@@ -219,6 +220,18 @@ router.post('/brief_menu_item_category', async (req, res) => {
 router.post('/menu_item_information', async (req, res) => {
    let result = await menuDao.getItemInfo(req.body).then(res => res);
    res.json(result);
+});
+
+//===mission
+router.post('/search_mission', async (req, res) => {
+   let result = await missionDao.searchMission(req.body).then(res => res);
+   res.json(result);
+});
+
+router.post('/mission_information', async (req, res) => {
+   let result = await missionDao.getMissionInfo(req.body).then(res => res);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
 });
 
 

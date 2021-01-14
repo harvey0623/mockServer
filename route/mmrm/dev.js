@@ -1746,4 +1746,81 @@ router.post('/member_notification_inbox', async (req, res) => {
    }, 1000)
 });
 
+//===mission
+router.post('/search_mission', async (req, res) => {
+   let result = {
+      "rcrm": {
+         "RC": "C01",
+         "RM": "成功",
+         "RM_detail": ""
+      },
+      "next": 1,
+      "results": {
+         "system_datetime": "2019/07/17 23:59:50",
+         "mission_ids": [1,2,3]
+      }
+   };
+   setTimeout(() => {
+      res.json(result);
+   }, 1000)
+});
+
+router.post('/mission_information', async (req, res) => {
+   let result = {
+      "rcrm": {
+         "RC": "C01",
+         "RM": "成功",
+         "RM_detail": ""
+      },
+      "results": {
+         "mission_information": [
+            {
+               "mission_id": 1,
+               "feature_image": {
+                  "width": 960,
+                  "height": 600,
+                  "url": "http://dev.wishmobile.net/app_image/960x600.png"
+               },
+               "title": "2019 周年任務",
+               "description": "GK 周年慶！達成指定消費任務請你免費喝咖啡、吃蛋糕。",
+               "status": "opening",
+               "end_datetime": "2019/07/21 23:59:59",
+               "start_datetime": "2019/07/01 00:00:00"
+            },
+            {
+               "mission_id": 2,
+               "feature_image": {
+                  "width": 960,
+                  "height": 600,
+                  "url": "http://dev.wishmobile.net/app_image/960x600.png"
+               },
+               "title": "App 大改版，會員專屬新功能上線",
+               "status": "unopened",
+               "end_datetime": "2019/07/24 23:59:59",
+               "start_datetime": "2019/07/01 00:00:00"
+            },
+            {
+               "mission_id": 3,
+               "feature_image": {
+                  "width": 960,
+                  "height": 600,
+                  "url": "http://dev.wishmobile.net/app_image/960x600.png"
+               },
+               "title": "中秋賞月任務",
+               "status": "closed",
+               "end_datetime": "2020/01/01 23:59:59",
+               "start_datetime": "2019/07/01 00:00:00"
+            }
+         ]
+      }
+   };
+
+   setTimeout(() => {
+      res.json(result);
+   }, 1000);
+   
+});
+
+
+
 module.exports = router;
