@@ -1642,7 +1642,7 @@ router.post('/public_message_inbox', async (req, res) => {
    };
    setTimeout(() => {
       res.json({
-         next: null,
+         next: 1,
          results: {
             message
          }
@@ -1690,7 +1690,7 @@ router.post('/member_message_inbox', async (req, res) => {
    };
    setTimeout(() => {
       res.json({
-         next: 1,
+         next: null,
          results: {
             message
          }
@@ -1698,6 +1698,7 @@ router.post('/member_message_inbox', async (req, res) => {
    }, 1000)
 });
 
+//===通知訊息
 router.post('/member_notification_inbox', async (req, res) => {
    let message = [];
    for (let i = 1; i <= 10; i++) {
@@ -1739,7 +1740,7 @@ router.post('/member_notification_inbox', async (req, res) => {
       res.json({
          next: null,
          results: {
-            notification: message
+            notification: []
          }
       });
    }, 1000)
