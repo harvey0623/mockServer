@@ -1757,7 +1757,7 @@ router.post('/search_mission', async (req, res) => {
       "next": 1,
       "results": {
          "system_datetime": "2019/07/17 23:59:50",
-         "mission_ids": [1,2,3]
+         "mission_ids": [1, 2, 3]
       }
    };
    setTimeout(() => {
@@ -1765,6 +1765,7 @@ router.post('/search_mission', async (req, res) => {
    }, 1000)
 });
 
+//任務列表用
 router.post('/mission_information', async (req, res) => {
    let result = {
       "rcrm": {
@@ -1818,7 +1819,138 @@ router.post('/mission_information', async (req, res) => {
    setTimeout(() => {
       res.json(result);
    }, 1000);
-   
+
+});
+
+//任務詳情頁面用
+router.post('/mission_information_page', async (req, res) => {
+   let result = {
+      "rcrm": {
+         "RC": "C01",
+         "RM": "成功",
+         "RM_detail": ""
+      },
+      "results": {
+         "mission_information": [
+            {
+               "mission_id": 1,
+               "feature_image": {
+                  "width": 960,
+                  "height": 600,
+                  "url": "http://dev.wishmobile.net/app_image/960x600.png"
+               },
+               "title": "2019 周年任務",
+               "description": "GK 周年慶！達成指定消費任務請你免費喝咖啡、吃蛋糕。",
+               "status": "opening",
+               "content": "<p>HTML 內容</p>",
+               "meta": [
+                  {
+                     "key": "適用對象",
+                     "value": "全部會員、非會員"
+                  },
+                  {
+                     "key": "適用門市",
+                     "value": "全門市適用"
+                  }
+               ],
+               "end_datetime": "2019/07/21 23:59:59",
+               "start_datetime": "2019/07/01 00:00:00",
+               "milestone_summary_info": [
+                  {
+                     "milestone_id": 1,
+                     "title": "關卡 1",
+                     "task_amount": 3
+                  },
+                  {
+                     "milestone_id": 2,
+                     "title": "關卡 2",
+                     "task_amount": 9
+                  },
+                  {
+                     "milestone_id": 3,
+                     "title": "關卡 3",
+                     "task_amount": 5
+                  }
+               ]
+            }
+         ]
+      }
+   }
+
+   res.json(result);
+});
+
+//我的任務
+router.post('/my_mission_information', async (req, res) => {
+   let result = {
+      "rcrm": {
+         "RC": "C01",
+         "RM": "成功",
+         "RM_detail": ""
+      },
+      "results": {
+         "my_mission_information": {
+            "mission_id": 1,
+            "milestones": [
+               {
+                  "milestone_id": 1,
+                  "title": "關卡 1",
+                  "task": {
+                     "complete_count": 3,
+                     "amount": 3,
+                     "progress": [
+                        {
+                           "task_id": 1,
+                           "complete_count": "1",
+                           "max_complete_amount": "1"
+                        },
+                        {
+                           "task_id": 2,
+                           "complete_count": "3",
+                           "max_complete_amount": "3"
+                        },
+                        {
+                           "task_id": 3,
+                           "complete_count": "5",
+                           "max_complete_amount": "5"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "milestone_id": 2,
+                  "title": "關卡 2",
+                  "task": {
+                     "complete_count": 2,
+                     "amount": 5,
+                     "progress": [
+                        {
+                           "task_id": 4,
+                           "complete_count": "1",
+                           "max_complete_amount": "1"
+                        },
+                        {
+                           "task_id": 5,
+                           "complete_count": "3",
+                           "max_complete_amount": "3"
+                        }
+                     ]
+                  }
+               },
+               {
+                  "milestone_id": 3,
+                  "title": "關卡 3",
+                  "task": {
+                     "complete_count": "6",
+                     "amount": "0",
+                     "progress": []
+                  }
+               }
+            ]
+         }
+      }
+   }
+   res.json(result);
 });
 
 

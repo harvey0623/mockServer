@@ -234,5 +234,12 @@ router.post('/mission_information', async (req, res) => {
    res.status(statusCode).json(result);
 });
 
+router.post('/my_mission_information', async (req, res) => {
+   let result = await missionDao.getMyMissionInfo(req.body).then(res => res);
+   res.json(result);
+});
+
+
+
 
 module.exports = router;
