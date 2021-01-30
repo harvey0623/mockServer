@@ -404,6 +404,24 @@ router.post('/point_information', (req, res) => {
                   }
                ]
             },
+            {
+               "point_id": 3,
+               "title": "額外點數",
+               "feature_image": {
+                  "width": 60,
+                  "height": 60,
+                  "url": "http://dev.wishmobile.net/app_image/60x60.png"
+               },
+               "point_circulate_start_datetime": "2018/01/01 23:59:59",
+               "point_circulate_end_datetime": "2118/12/31 23:59:59",
+               "hide_duration": true,
+               "meta": [
+                  {
+                     "key": "消費 1 元",
+                     "value": "獲得 1 點"
+                  }
+               ]
+            },
          ]
       }
    });
@@ -985,6 +1003,37 @@ router.post('/availableStore2', (req, res) => {
    });
 });
 
+//===取得所有品牌
+router.post('/search_brand', (req, res) => {
+   console.log(req.body);
+   res.json({
+      "results": {
+         "brand_ids": [1, 2, 3]
+      }
+   });
+});
+
+//===活動兌換方式
+router.post('/brief_coupon_activity_type', (req, res) => {
+   res.json({
+      "results": {
+         "redeem_types": [
+            {
+               "redeem_type": "free"
+            },
+            {
+               "redeem_type": "redeem_code"
+            },
+            {
+               "redeem_type": "point",
+               "point_ids": [1, 2],
+               "external_point_ids": [3]
+            }
+         ]
+      }
+   });
+});
+
 //===活動票券列表
 router.post('/search_coupon_activity', (req, res) => {
    console.log(req.body);
@@ -1107,36 +1156,6 @@ router.post('/coupon_activity_information', (req, res) => {
                ],
                "end_datetime": "2020/08/30 23:59:59",
                "start_datetime": "2020/08/28 00:00:00"
-            }
-         ]
-      }
-   });
-});
-
-//===取得所有品牌
-router.post('/search_brand', (req, res) => {
-   console.log(req.body);
-   res.json({
-      "results": {
-         "brand_ids": [1, 2, 3]
-      }
-   });
-});
-
-//===活動兌換方式
-router.post('/brief_coupon_activity_type', (req, res) => {
-   res.json({
-      "results": {
-         "redeem_types": [
-            {
-               "redeem_type": "free"
-            },
-            {
-               "redeem_type": "redeem_code"
-            },
-            {
-               "redeem_type": "point",
-               "point_ids": [1, 2]
             }
          ]
       }
