@@ -427,6 +427,39 @@ router.post('/point_information', (req, res) => {
    });
 });
 
+//===取得額外點數資訊
+router.post('/external_point_information', (req, res) => {
+   console.log(req.body);
+   res.json({
+      "results": {
+         "point_information": [
+            {
+               "point_id": 1,
+               "title": "春節積點",
+               "feature_image": {
+                  "width": 60,
+                  "height": 60,
+                  "url": "http://dev.wishmobile.net/app_image/60x60.png"
+               },
+               "point_circulate_start_datetime": "2019/01/01 23:59:59",
+               "point_circulate_end_datetime": "2019/12/31 23:59:59",
+               "hide_duration": false,
+               "meta": [
+                  {
+                     "key": "消費滿 100 元",
+                     "value": "獲得 1 點"
+                  },
+                  {
+                     "key": "購買春節套餐",
+                     "value": "額外贈送 10 點"
+                  }
+               ]
+            },
+         ]
+      }
+   });
+});
+
 //===即將到期點數
 router.post('/expirePoint', (req, res) => {
    console.log(req.body);
