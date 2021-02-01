@@ -64,6 +64,7 @@ router.post('/point_due_to_expire', async (req, res) => {
 
 router.post('/point_information', async (req, res) => {
    let result = await pointDao.getPointInfo(req.body);
+   res.json(result);
 });
 
 router.post('/external_point_information', async (req, res) => {

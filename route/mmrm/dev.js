@@ -240,9 +240,8 @@ router.post('/history', (req, res) => {
 
 });
 
-//===店家資訊
+//===品牌資訊
 router.post('/brandInfo', (req, res) => {
-   console.log(req.body);
    res.json({
       "results": {
          "brand_information": [
@@ -293,6 +292,15 @@ router.post('/brandInfo', (req, res) => {
          ]
       }
    })
+});
+
+//===取得所有品牌
+router.post('/search_brand', (req, res) => {
+   res.json({
+      "results": {
+         "brand_ids": [1, 2, 3]
+      }
+   });
 });
 
 //===交易記錄詳情
@@ -360,7 +368,6 @@ router.post('/history_detail', (req, res) => {
 
 //===取得點數資訊
 router.post('/point_information', (req, res) => {
-   console.log(req.body);
    res.json({
       "results": {
          "point_information": [
@@ -403,25 +410,7 @@ router.post('/point_information', (req, res) => {
                      "value": "獲得 1 點"
                   }
                ]
-            },
-            {
-               "point_id": 3,
-               "title": "額外點數",
-               "feature_image": {
-                  "width": 60,
-                  "height": 60,
-                  "url": "http://dev.wishmobile.net/app_image/60x60.png"
-               },
-               "point_circulate_start_datetime": "2018/01/01 23:59:59",
-               "point_circulate_end_datetime": "2118/12/31 23:59:59",
-               "hide_duration": true,
-               "meta": [
-                  {
-                     "key": "消費 1 元",
-                     "value": "獲得 1 點"
-                  }
-               ]
-            },
+            }
          ]
       }
    });
@@ -429,13 +418,12 @@ router.post('/point_information', (req, res) => {
 
 //===取得額外點數資訊
 router.post('/external_point_information', (req, res) => {
-   console.log(req.body);
    res.json({
       "results": {
          "point_information": [
             {
-               "point_id": 1,
-               "title": "春節積點",
+               "point_id": 3,
+               "title": "額外點數",
                "feature_image": {
                   "width": 60,
                   "height": 60,
@@ -1036,16 +1024,6 @@ router.post('/availableStore2', (req, res) => {
    });
 });
 
-//===取得所有品牌
-router.post('/search_brand', (req, res) => {
-   console.log(req.body);
-   res.json({
-      "results": {
-         "brand_ids": [1, 2, 3]
-      }
-   });
-});
-
 //===活動兌換方式
 router.post('/brief_coupon_activity_type', (req, res) => {
    res.json({
@@ -1069,7 +1047,6 @@ router.post('/brief_coupon_activity_type', (req, res) => {
 
 //===活動票券列表
 router.post('/search_coupon_activity', (req, res) => {
-   console.log(req.body);
    setTimeout(() => {
       let now = new Date();
       let date = now.toLocaleDateString();
@@ -1078,7 +1055,7 @@ router.post('/search_coupon_activity', (req, res) => {
          "next": 1,
          "results": {
             "system_datetime": `${date} ${time}`,
-            "coupon_activity_ids": [1, 2, 3]
+            "coupon_activity_ids": [10, 20, 30]
          }
       });
    }, 2000);
@@ -1086,12 +1063,11 @@ router.post('/search_coupon_activity', (req, res) => {
 
 //===活動票券列表詳情
 router.post('/coupon_activity_information', (req, res) => {
-   console.log(req.body);
    res.json({
       "results": {
          "coupon_activity_information": [
             {
-               "coupon_activity_id": 1,
+               "coupon_activity_id": 10,
                "brand_id": 1,
                "feature_image": {
                   "width": 960,
@@ -1121,7 +1097,7 @@ router.post('/coupon_activity_information', (req, res) => {
                "start_datetime": "2020/08/28 00:00:00"
             },
             {
-               "coupon_activity_id": 123,
+               "coupon_activity_id": 20,
                "brand_id": 1,
                "feature_image": {
                   "width": 960,
@@ -1151,7 +1127,7 @@ router.post('/coupon_activity_information', (req, res) => {
                "start_datetime": "2020/08/28 00:00:00"
             },
             {
-               "coupon_activity_id": 3,
+               "coupon_activity_id": 30,
                "brand_id": 3,
                "feature_image": {
                   "width": 960,
