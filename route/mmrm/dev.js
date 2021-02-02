@@ -423,7 +423,29 @@ router.post('/external_point_information', (req, res) => {
          "point_information": [
             {
                "point_id": 3,
-               "title": "額外點數",
+               "title": "額外點數A",
+               "feature_image": {
+                  "width": 60,
+                  "height": 60,
+                  "url": "http://dev.wishmobile.net/app_image/60x60.png"
+               },
+               "point_circulate_start_datetime": "2019/01/01 23:59:59",
+               "point_circulate_end_datetime": "2019/12/31 23:59:59",
+               "hide_duration": false,
+               "meta": [
+                  {
+                     "key": "消費滿 100 元",
+                     "value": "獲得 1 點"
+                  },
+                  {
+                     "key": "購買春節套餐",
+                     "value": "額外贈送 10 點"
+                  }
+               ]
+            },
+            {
+               "point_id": 4,
+               "title": "額外點數B",
                "feature_image": {
                   "width": 60,
                   "height": 60,
@@ -1038,7 +1060,7 @@ router.post('/brief_coupon_activity_type', (req, res) => {
             {
                "redeem_type": "point",
                "point_ids": [1, 2],
-               "external_point_ids": [3]
+               "external_point_ids": [3, 4]
             }
          ]
       }
@@ -1055,7 +1077,7 @@ router.post('/search_coupon_activity', (req, res) => {
          "next": 1,
          "results": {
             "system_datetime": `${date} ${time}`,
-            "coupon_activity_ids": [10, 20, 30]
+            "coupon_activity_ids": [10, 20, 30, 40]
          }
       });
    }, 2000);
@@ -1067,14 +1089,14 @@ router.post('/coupon_activity_information', (req, res) => {
       "results": {
          "coupon_activity_information": [
             {
-               "coupon_activity_id": 10,
+               "coupon_activity_id": Math.ceil(Math.random() * 1000),
                "brand_id": 1,
                "feature_image": {
                   "width": 960,
                   "height": 600,
                   "url": "https://mmrm-file-uat.wisho2o.com/images/pickup_activity20200821103845_5f3f33b5358c8_960_600.jpeg"
                },
-               "title": "票券活動標題",
+               "title": "點數兌換票券1",
                "status": "opening",
                "redeem_type": "point",
                "point_condition": [
@@ -1082,10 +1104,12 @@ router.post('/coupon_activity_information', (req, res) => {
                      "point_id": 1,
                      "amount": "50"
                   },
+               ],
+               "external_point_condition": [
                   {
-                     "point_id": 2,
-                     "amount": "150"
-                  },
+                    "point_id": 3,
+                    "amount": "20"
+                  }
                ],
                "meta": [
                   {
@@ -1097,25 +1121,27 @@ router.post('/coupon_activity_information', (req, res) => {
                "start_datetime": "2020/08/28 00:00:00"
             },
             {
-               "coupon_activity_id": 20,
-               "brand_id": 1,
+               "coupon_activity_id": Math.ceil(Math.random() * 1000),
+               "brand_id": 2,
                "feature_image": {
                   "width": 960,
                   "height": 600,
                   "url": "https://mmrm-file-uat.wisho2o.com/images/pickup_activity20200821103845_5f3f33b5358c8_960_600.jpeg"
                },
-               "title": "票券活動標題",
+               "title": "點數兌換票券2",
                "status": "opening",
                "redeem_type": "point",
                "point_condition": [
                   {
-                     "point_id": 1,
-                     "amount": "1"
-                  },
-                  {
                      "point_id": 2,
                      "amount": "1"
                   },
+               ],
+               "external_point_condition": [
+                  {
+                    "point_id": 4,
+                    "amount": "100"
+                  }
                ],
                "meta": [
                   {
@@ -1127,16 +1153,16 @@ router.post('/coupon_activity_information', (req, res) => {
                "start_datetime": "2020/08/28 00:00:00"
             },
             {
-               "coupon_activity_id": 30,
+               "coupon_activity_id": Math.ceil(Math.random() * 1000),
                "brand_id": 3,
                "feature_image": {
                   "width": 960,
                   "height": 600,
                   "url": "https://mmrm-file-uat.wisho2o.com/images/pickup_activity20190826215047_5d63e3b7bcad7_960_600.png"
                },
-               "title": "票券活動標題3",
-               "status": "closed",
-               "redeem_type": "redeem_code",
+               "title": "免費兌換票券",
+               "status": "opening",
+               "redeem_type": "free",
                "meta": [
                   {
                      "key": "兌換期間",
@@ -1147,16 +1173,16 @@ router.post('/coupon_activity_information', (req, res) => {
                "start_datetime": "2020/08/28 00:00:00"
             },
             {
-               "coupon_activity_id": 2,
-               "brand_id": 2,
+               "coupon_activity_id": Math.ceil(Math.random() * 1000),
+               "brand_id": 4,
                "feature_image": {
                   "width": 960,
                   "height": 600,
                   "url": "https://mmrm-file-uat.wisho2o.com/images/pickup_activity20200821103845_5f3f33b5358c8_960_600.jpeg"
                },
-               "title": "票券活動標題2",
-               "status": "unopened",
-               "redeem_type": "free",
+               "title": "代碼兌換票券",
+               "status": "opening",
+               "redeem_type": "redeem_code",
                "meta": [
                   {
                      "key": "兌換期間",
