@@ -16,6 +16,7 @@ const yujanshin = require('./route/mmrm/yujanshin.js');
 const line = require('./route/line/index.js');
 const fb = require('./route/fb/index.js');
 const google = require('./route/google/index.js');
+const hexagon = require('./route/hexagon/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -30,6 +31,7 @@ app.use('/side-project', sideproject);
 app.use('/mmrm', mmrm);
 app.use('/mmrmProd', mmrmProd);
 app.use('/yujanshin', yujanshin);
+app.use('/hexagon', hexagon);
 app.use('/line', line);
 app.use('/fb', fb);
 app.use('/google', google);
