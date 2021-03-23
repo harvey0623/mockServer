@@ -29,6 +29,34 @@ const hexagonDao = {
          method: 'post',
          data: payload
       }).then(res => res.data);
+   },
+   forget_password(payload) {
+      return hexagonAxios({
+         url: '/member/forget_password',
+         method: 'post',
+         data: payload
+      }).then(res => res.data);
+   },
+   update_password(payload) {
+      return hexagonAxios({
+         url: '/member/update_password',
+         method: 'post',
+         data: payload
+      }).then(res => res.data);
+   },
+   info(payload) {
+      return hexagonAxios({
+         url: '/member/info',
+         method: 'post',
+         data: payload
+      }).then(res => res.data);
+   },
+   update() {
+      return hexagonAxios({
+         url: '/member/update',
+         method: 'post',
+         data: payload
+      }).then(res => res.data);
    }
 };
 
