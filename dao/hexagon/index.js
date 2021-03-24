@@ -63,7 +63,7 @@ const hexagonDao = {
          data: payload
       }).then(res => res.data);
    },
-   update() {
+   update(payload) {
       return hexagonAxios({
          url: '/member/update',
          method: 'post',
