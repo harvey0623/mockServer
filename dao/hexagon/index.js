@@ -2,6 +2,18 @@ const hexagonAxios = require('../../utility/axios/hexagon.js');
 const cryptoObj = require('../../utility/crypto/hexagon.js');
 
 const hexagonDao = {
+   login(payload) {
+      return hexagonAxios({
+         url: '/member/login',
+         method: 'post',
+         data: {
+            login_type: payload.login_type,
+            account: cryptoObj.encrypt(payload.account),
+            password: cryptoObj.encrypt(payload.password),
+            channel: payload.channel
+         }
+      }).then(res => res.data);
+   },
    register(payload) {
       return hexagonAxios({
          url: '/member/register',

@@ -17,9 +17,9 @@ let cryptoObj = {
    //    return encrypted.toString();
    // },
    encrypt(strWord) {
-      var keyUtf8 = CryptoJS.enc.Utf8.parse(HEXAGON_KEY);
-      var ivUtf8 = CryptoJS.enc.Utf8.parse(HEXAGON_IV);
-      var encrypted = CryptoJS.AES.encrypt(strWord, keyUtf8, {
+      let keyUtf8 = CryptoJS.enc.Utf8.parse(HEXAGON_KEY);
+      let ivUtf8 = CryptoJS.enc.Utf8.parse(HEXAGON_IV);
+      let encrypted = CryptoJS.AES.encrypt(strWord, keyUtf8, {
          iv: ivUtf8,
          mode: CryptoJS.mode.CBC,
          padding: CryptoJS.pad.Pkcs7,

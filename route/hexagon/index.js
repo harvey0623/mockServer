@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const hexagonDao = require('../../dao/hexagon/index.js');
 
+router.post('/member/login', async(req, res) => {
+   let result = await hexagonDao.login(req.body);
+   res.json(result);
+});
+
 router.post('/member/register', async(req, res) => {
    let result = await hexagonDao.register(req.body);
    res.json(result);
