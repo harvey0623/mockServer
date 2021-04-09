@@ -17,6 +17,7 @@ const line = require('./route/line/index.js');
 const fb = require('./route/fb/index.js');
 const google = require('./route/google/index.js');
 const hexagon = require('./route/hexagon/index.js');
+const ttpush = require('./route/ttpush/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/mmrm', mmrm);
 app.use('/mmrmProd', mmrmProd);
 app.use('/yujanshin', yujanshin);
 app.use('/hexagon', hexagon);
+app.use('/ttpush', ttpush);
 app.use('/line', line);
 app.use('/fb', fb);
 app.use('/google', google);
