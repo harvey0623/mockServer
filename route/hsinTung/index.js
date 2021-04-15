@@ -7,8 +7,13 @@ router.post('/term/brief_term', async (req, res) => {
    res.json(result);
 });
 
-router.post('/function/encrypt_relay', async (req, res) => {
+router.post('/login', async (req, res) => {
    let result = await hsinTungDao.login(req.body);
+   res.json(result);
+});
+
+router.post('/checkMobile', async (req, res) => {
+   let result = await hsinTungDao.checkMobile(req.body);
    res.json(result);
 });
 
