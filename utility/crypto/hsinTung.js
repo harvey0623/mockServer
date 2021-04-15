@@ -1,6 +1,6 @@
 const CryptoJS = require("crypto-js");
 const aes_key = 'eebfda858b61cd8dfb7590084b1b6e20';
-const sign_key = '4b9a30cf7b841e260f89cc6b403ac615'
+const sign_key = '4b9a30cf7b841e260f89cc6b403ac615';
 
 let cryptoObj = {
    wm_sign(body) {
@@ -11,10 +11,24 @@ let cryptoObj = {
    },
    wm_aes(input) {
       var keyHash = CryptoJS.SHA384(aes_key);
-      var key = CryptoJS.enc.Hex.parse(keyHash.toString().substring(0,64));
-      var iv = CryptoJS.enc.Hex.parse(keyHash.toString().substring(64,96));
+      var key = CryptoJS.enc.Hex.parse(keyHash.toString().substring(0, 64));
+      var iv = CryptoJS.enc.Hex.parse(keyHash.toString().substring(64, 96));
       var encrypted = CryptoJS.AES.encrypt(input, key, { iv: iv });
       return encrypted.toString();
+   },
+   wm_des(input) {
+      var keyHash = CryptoJS.SHA384(aes_key);
+      var key = CryptoJS.enc.Hex.parse(keyHash.toString().substring(0, 64));
+      var iv = CryptoJS.enc.Hex.parse(keyHash.toString().substring(64, 96));
+      var decrypted = CryptoJS.AES.decrypt(
+         input,
+         key, {
+         iv: iv,
+         mode: CryptoJS.mode.CBC,
+         padding: CryptoJS.pad.Pkcs7
+      });
+      let cipherText = decrypted.toString();
+      return JSON.parse(CryptoJS.enc.Hex.parse(cipherText).toString(CryptoJS.enc.Utf8));
    }
 };
 
