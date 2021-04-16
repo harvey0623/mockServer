@@ -17,4 +17,14 @@ router.post('/checkMobile', async (req, res) => {
    res.json(result);
 });
 
+router.post('/checkEmail', async (req, res) => {
+   let result = await hsinTungDao.checkEmail(req.body);
+   res.json(result);
+});
+
+router.post('/verifyMobile', async (req, res) => {
+   let result = await hsinTungDao.verifyMobile(req.body);
+   res.json(result);
+});
+
 module.exports = router;

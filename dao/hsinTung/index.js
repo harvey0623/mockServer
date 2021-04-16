@@ -83,6 +83,74 @@ const hsinTungDao = {
             }
          }
       });
+   },
+   async checkEmail(payload) {
+      let params = {
+         "http_method": "POST",
+         "merchant": "HTY",
+         "header": null,
+         "request_body_type": "x-www-form-urlencoded",
+         "body": {
+            "K": HTY_API_KEY,
+            "F": "JSON",
+            "Q1": payload.Q1,
+         }
+      };
+      let sign = cryptoObj.wm_sign({
+         request_parameter: {
+            url: '/app/checkEmail',
+            payload: cryptoObj.wm_aes(JSON.stringify(params)),
+         },
+         timestamp: "2020/01/01 10:00:05",
+      });
+      return hsinTungAxios({
+         url: '/function/encrypt_relay',
+         method: 'post',
+         data: { sign },
+      }).then(res => {
+         return {
+            ...res.data,
+            results: {
+               data: {
+                  payload: cryptoObj.wm_des(res.data.results.data.payload)
+               }
+            }
+         }
+      });
+   },
+   async verifyMobile(payload) {
+      let params = {
+         "http_method": "POST",
+         "merchant": "HTY",
+         "header": null,
+         "request_body_type": "x-www-form-urlencoded",
+         "body": {
+            "K": HTY_API_KEY,
+            "F": "JSON",
+            "Q1": payload.Q1,
+         }
+      };
+      let sign = cryptoObj.wm_sign({
+         request_parameter: {
+            url: '/app/verifyMobile',
+            payload: cryptoObj.wm_aes(JSON.stringify(params)),
+         },
+         timestamp: "2020/01/01 10:00:05",
+      });
+      return hsinTungAxios({
+         url: '/function/encrypt_relay',
+         method: 'post',
+         data: { sign },
+      }).then(res => {
+         return {
+            ...res.data,
+            results: {
+               data: {
+                  payload: cryptoObj.wm_des(res.data.results.data.payload)
+               }
+            }
+         }
+      });
    }
 };
 
