@@ -27,4 +27,14 @@ router.post('/verifyMobile', async (req, res) => {
    res.json(result);
 });
 
+router.post('/search_store', async (req, res) => {
+   let result = await hsinTungDao.searchStore(req.body);
+   res.json(result);
+});
+
+router.post('/store_information', async (req, res) => {
+   let result = await hsinTungDao.storeInformation(req.body);
+   res.json(result);
+});
+
 module.exports = router;

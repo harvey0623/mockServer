@@ -13,7 +13,7 @@ const hsinTungDao = {
                timestamp: "2020/01/01 10:00:05",
             }),
          },
-      }).then((res) => res.data);
+      }).then(res => res.data);
    },
    async login(payload) {
       let params = {
@@ -151,6 +151,30 @@ const hsinTungDao = {
             }
          }
       });
+   },
+   async searchStore(payload) {
+      return hsinTungAxios({
+         url: "/store/search_store",
+         method: "post",
+         data: {
+            sign: cryptoObj.wm_sign({
+               request_parameter: { ...payload },
+               timestamp: "2020/01/01 10:00:05",
+            }),
+         },
+      }).then(res => res.data);
+   },
+   async storeInformation(payload) {
+      return hsinTungAxios({
+         url: "/store/store_information",
+         method: "post",
+         data: {
+            sign: cryptoObj.wm_sign({
+               request_parameter: { ...payload },
+               timestamp: "2020/01/01 10:00:05",
+            }),
+         },
+      }).then(res => res.data);
    }
 };
 
