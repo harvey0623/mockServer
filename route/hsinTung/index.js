@@ -37,4 +37,9 @@ router.post('/store_information', async (req, res) => {
    res.json(result);
 });
 
+router.post('/add', async (req, res) => {
+   let result = await hsinTungDao.add(req.body);
+   res.json(result);
+});
+
 module.exports = router;
