@@ -42,4 +42,14 @@ router.post('/add', async (req, res) => {
    res.json(result);
 });
 
+router.post('/forget', async (req, res) => {
+   let result = await hsinTungDao.forget(req.body);
+   res.json(result);
+});
+
+router.post('/login_with_external_member', async (req, res) => {
+   let result = await hsinTungDao.externalLogin(req.body);
+   res.json(result);
+});
+
 module.exports = router;
