@@ -17,8 +17,8 @@ const line = require('./route/line/index.js');
 const fb = require('./route/fb/index.js');
 const google = require('./route/google/index.js');
 const hexagon = require('./route/hexagon/index.js');
-const ttpush = require('./route/ttpush/index.js');
 const hsinTung = require('./route/hsinTung/index.js');
+const nestle = require('./route/nestle/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -35,7 +35,7 @@ app.use('/mmrmProd', mmrmProd);
 app.use('/yujanshin', yujanshin);
 app.use('/hexagon', hexagon);
 app.use('/hsinTung', hsinTung);
-app.use('/ttpush', ttpush);
+app.use('/nestle', nestle);
 app.use('/line', line);
 app.use('/fb', fb);
 app.use('/google', google);
