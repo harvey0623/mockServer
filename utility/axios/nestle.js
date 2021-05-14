@@ -1,11 +1,11 @@
 const axios = require('axios');
 const nestleAxios = axios.create({
-   baseURL: '',
+   baseURL: 'https://ndg-pos-uat.wisho2o.com/api',
    headers: {
       'Content-Type': 'application/json',
       'Accept-Language': 'zh-TW',
-      'app-id': '743dd291528258617364ce4022fe3e7d',
-      'device-uuid': '213'
+      'app-id': '32b69906388000a6383158c73d4a0759',
+      'device-uuid': '123'
    },
 });
 
