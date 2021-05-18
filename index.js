@@ -19,6 +19,7 @@ const google = require('./route/google/index.js');
 const hexagon = require('./route/hexagon/index.js');
 const hsinTung = require('./route/hsinTung/index.js');
 const nestle = require('./route/nestle/index.js');
+const caltrate = require('./route/caltrate/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -36,6 +37,7 @@ app.use('/yujanshin', yujanshin);
 app.use('/hexagon', hexagon);
 app.use('/hsinTung', hsinTung);
 app.use('/nestle', nestle);
+app.use('/caltrate', caltrate);
 app.use('/line', line);
 app.use('/fb', fb);
 app.use('/google', google);
