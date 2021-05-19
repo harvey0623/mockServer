@@ -57,7 +57,6 @@ router.post('/point_history', async (req, res) => {
 });
 
 router.post('/point_due_to_expire', async (req, res) => {
-   console.log(req.body)
    let result = await pointDao.pointExpire(req.body);
    res.json(result);
 });
@@ -243,8 +242,5 @@ router.post('/my_mission_information', async (req, res) => {
    let result = await missionDao.getMyMissionInfo(req.body).then(res => res);
    res.json(result);
 });
-
-
-
 
 module.exports = router;
