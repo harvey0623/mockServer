@@ -4,7 +4,12 @@ const nestleDao = require('../../dao/nestle/index.js');
 
 router.post('/coupon/redeem', async (req, res) => {
    let results = await nestleDao.redeem(req.body);
-   res.json({ });
+   res.json(results);
+});
+
+router.post('/coupon/transaction_check', async (req, res) => {
+   let results = await nestleDao.redeem(req.body);
+   res.json(results);
 });
 
 module.exports = router;
