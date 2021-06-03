@@ -8,7 +8,7 @@ router.post('/coupon/redeem', async (req, res) => {
 });
 
 router.post('/coupon/transaction_check', async (req, res) => {
-   let results = await nestleDao.redeem(req.body);
+   let results = await nestleDao.check(req.body);
    res.json(results);
 });
 
