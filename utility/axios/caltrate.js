@@ -1,6 +1,6 @@
 const axios = require('axios');
 const caltrateAxios = axios.create({
-   baseURL: 'https://cal-app-uat.wisho2o.com/api',
+   baseURL: 'https://cal-pos-uat.wisho2o.com/api',
    headers: {
       'Content-Type': 'application/json',
       'Accept-Language': 'zh-TW',
