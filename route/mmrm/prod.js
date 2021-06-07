@@ -50,6 +50,12 @@ router.post('/verify_password', async (req, res) => {
    res.status(statusCode).json(result);
 });
 
+router.post('/update_member_profile', async (req, res) => {
+   let result = await memberDao.updateMemberProfile(req.body);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
+});
+
 //===point
 router.post('/point_history', async (req, res) => {
    let result = await pointDao.getPointHistory(req.body);

@@ -1,6 +1,6 @@
 const axios = require('axios');
-const caltrateAxios = axios.create({
-   baseURL: 'https://cal-pos-uat.wisho2o.com/api',
+const updatePhoneAxios = axios.create({
+   baseURL: 'https://cal-app-uat.wisho2o.com/external/api',
    headers: {
       'Content-Type': 'application/json',
       'Accept-Language': 'zh-TW',
@@ -9,4 +9,6 @@ const caltrateAxios = axios.create({
    },
 });
 
-module.exports = caltrateAxios;
+module.exports = {
+   updatePhoneAxios
+};

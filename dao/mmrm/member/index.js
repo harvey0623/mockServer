@@ -66,6 +66,22 @@ const memberDao = {
       }).catch(err => {
          console.log(err);
       });
+   },
+   updateMemberProfile(payload) {
+      let signText = wmSign({
+         "member_access_token": access_token,
+         "request_parameter": { ...payload },
+         "timestamp": "2019/01/01 10:00:05"
+      });
+      return mmrmAxios({
+         url: '/member/update_member_profile',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
    }
 }
 
