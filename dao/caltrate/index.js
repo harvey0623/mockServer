@@ -19,7 +19,7 @@ const caltrateDao = {
          "timestamp": "2019/01/01 10:00:05"
       });
       return updatePhoneAxios({
-         url: '/update_member_mobile',
+         url: '/member/update_member_mobile',
          method: 'post',
          data: { sign: signText }
       }).then(res => {
