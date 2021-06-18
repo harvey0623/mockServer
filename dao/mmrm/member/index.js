@@ -98,6 +98,22 @@ const memberDao = {
       }).catch(err => {
          console.log(err);
       });
+   },
+   logout() {
+      let signText = wmSign({
+         "member_access_token": access_token,
+         "request_parameter": {},
+         "timestamp": "2019/01/01 10:00:05"
+      });
+      return mmrmAxios({
+         url: '/member/logout',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
    }
 }
 

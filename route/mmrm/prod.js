@@ -56,6 +56,12 @@ router.post('/update_member_profile', async (req, res) => {
    res.status(statusCode).json(result);
 });
 
+router.post('/logout', async (req, res) => {
+   let result = await memberDao.logout();
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
+});
+
 router.post('/update_member_photo', async (req, res) => {
    let result = await memberDao.updateMemberPhoto(req.body);
    let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
