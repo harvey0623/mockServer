@@ -22,6 +22,12 @@ router.post('/multiple_brand', (req, res) => {
    });
 });
 
+//===config
+router.post('/config/brief_config', async (req, res) => {
+   let result = await memberDao.config(req.body);
+   res.json(result);
+});
+
 //===level
 router.post('/level_information', async (req, res) => {
    let result = await levelDao.getLevelInfo(req.body);
