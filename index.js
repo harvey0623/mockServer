@@ -22,7 +22,7 @@ const nestle = require('./route/nestle/index.js');
 const caltrate = require('./route/caltrate/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '5mb' }));
 app.use(cookieParser());
 app.use(cors());
 app.listen(port);
@@ -62,8 +62,8 @@ app.use((req, res) => {
 // https://boiling-fortress-97054.herokuapp.com
 
 //===mmrm
-// 0999803025 / 1qaz2wsx
-// 0932359305 / a123456 (主要)
+// 0999803025 / 1qaz2wsx (主要)
+// 0932359305 / a123456
 
 //===裕珍馨
 // 146fc014-1d82-4f77-b040-d60c24eafcaa (自己辦的 0986104667/12345)

@@ -9,11 +9,6 @@
 
 <body>
    <div>
-      <h1>aes</h1>
-      <input type="text" class="input1">
-      <button class="button1">click</button>
-   </div>
-   <div>
       <h1>sign</h1>
       <p id="signResult"></p>
    </div>
@@ -22,10 +17,6 @@
    <script>
       const aes_key = '791701991223a6d7193e964b6690b58a';
       const sign_key = 'e456f38f675eac049d283cc2147ecd70';
-      const input1 = document.querySelector('.input1');
-      const button1 = document.querySelector('.button1');
-      const input2 = document.querySelector('.input2');
-      const button2 = document.querySelector('.button2');
 
 
       function wm_aes(input) {
@@ -43,17 +34,10 @@
          return sign;
       }
 
-      button1.addEventListener('click', function () {
-         let inputValue = input1.value;
-         let aesCode = wm_aes(inputValue);
-         console.log(aesCode);
-      });
-
       let singData = {
          "request_parameter": {
-            "type": [
-               "register"
-            ]
+            "account": wm_aes("0999803025"),
+            "password": wm_aes("1qaz2wsx")
          },
          "timestamp": "2019/01/01 10:00:05"
       };
