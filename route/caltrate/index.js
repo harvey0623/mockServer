@@ -93,4 +93,19 @@ router.post('/home_delivery/create_order', async (req, res) => {
    res.json({});
 });
 
+router.post('/couponSearch', async (req, res) => { // 查詢行銷票券
+   let results = await caltrateDao.couponSearch(req.body);
+   res.json(results);
+});
+
+router.post('/coupon/redeem', async (req, res) => {
+   let results = await caltrateDao.redeem(req.body);
+   res.json(results);
+});
+
+router.post('/coupon/transaction_check', async (req, res) => {
+   let results = await caltrateDao.check(req.body);
+   res.json(results);
+});
+
 module.exports = router;

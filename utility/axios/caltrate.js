@@ -19,7 +19,19 @@ const orderAxios = axios.create({
    },
 });
 
+const couponAxios = axios.create({
+   baseURL: 'https://cal-pos-uat.wisho2o.com/api',
+   headers: {
+      'Content-Type': 'application/json',
+      'Accept-Language': 'zh-TW',
+      'app-id': '05df9754ee84811f23f109a4f245a8c7',
+      'device-uuid': '123'
+   },
+});
+
+
 module.exports = {
    updatePhoneAxios,
-   orderAxios
+   orderAxios,
+   couponAxios
 };

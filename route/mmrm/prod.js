@@ -80,6 +80,18 @@ router.post('/update_member_password', async (req, res) => {
    res.status(statusCode).json(result);
 });
 
+router.post('/update_member_mobile', async (req, res) => {
+   let result = await memberDao.updateMemberMobile(req.body);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
+});
+
+router.post('/member_verify', async (req, res) => {
+   let result = await memberDao.memberVerify(req.body);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
+});
+
 //===point
 router.post('/point_history', async (req, res) => {
    let result = await pointDao.getPointHistory(req.body);

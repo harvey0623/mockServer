@@ -1,4 +1,4 @@
-const { updatePhoneAxios, orderAxios } = require("../../utility/axios/caltrate.js");
+const { updatePhoneAxios, orderAxios, couponAxios } = require("../../utility/axios/caltrate.js");
 const wmSign = require('../../utility/crypto/mmrm.js');
 const isDev = process.env.NODE_ENV === 'dev';
 const access_token = isDev ? process.env.MMRM_ACCESS_TOKEN : process.env.CUSTOM_ACCESS_TOKEN;
@@ -66,7 +66,48 @@ const caltrateDao = {
       }).catch(err => {
          console.log(err);
       });
-   }
+   },
+   async couponSearch(payload) {
+      let signText = wmSign({
+         request_parameter: { ...payload },
+         timestamp: '2019/01/01 10:00:05'
+      });
+      return couponAxios({
+         url: '/coupon/search',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res =>{
+         return res.data;
+      }).catch(err => {
+         console.log(null)
+      })
+   },
+   async redeem(payload) {
+      let signText = wmSign({
+         request_parameter: { ...payload },
+         timestamp: '2019/01/01 10:00:05'
+      });
+      return couponAxios({
+         url: '/coupon/redeem',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res =>{
+         return res.data;
+      })
+   },
+   async check(payload) {
+      let signText = wmSign({
+         request_parameter: { ...payload },
+         timestamp: '2019/01/01 10:00:05'
+      });
+      return couponAxios({
+         url: '/coupon/transaction_check',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res =>{
+         return res.data;
+      })
+   },
 };
 
 module.exports = caltrateDao;
