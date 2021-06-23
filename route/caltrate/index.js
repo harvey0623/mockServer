@@ -93,17 +93,17 @@ router.post('/home_delivery/create_order', async (req, res) => {
    res.json({});
 });
 
-router.post('/couponSearch', async (req, res) => { // 查詢行銷票券
+router.post('/couponSearch', async (req, res) => { //查詢行銷票券
    let results = await caltrateDao.couponSearch(req.body);
    res.json(results);
 });
 
-router.post('/coupon/redeem', async (req, res) => {
+router.post('/couponRedeem', async (req, res) => { //票券核銷
    let results = await caltrateDao.redeem(req.body);
    res.json(results);
 });
 
-router.post('/coupon/transaction_check', async (req, res) => {
+router.post('/couponTransactionCheck', async (req, res) => { //票券檢查
    let results = await caltrateDao.check(req.body);
    res.json(results);
 });

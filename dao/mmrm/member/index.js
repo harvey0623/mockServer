@@ -177,6 +177,22 @@ const memberDao = {
       }).catch(err => {
          console.log(err);
       });
+   },
+   resendVerify() { //重新寄送手機修改驗證碼
+      let signText = wmSign({
+         "member_access_token": access_token,
+         "request_parameter": {},
+         "timestamp": "2019/01/01 10:00:05"
+      });
+      return mmrmAxios({
+         url: '/member/resend_member_verify',
+         method: 'post',
+         data: { sign: signText }
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
    }
 }
 
