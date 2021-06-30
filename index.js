@@ -20,6 +20,7 @@ const hexagon = require('./route/hexagon/index.js');
 const hsinTung = require('./route/hsinTung/index.js');
 const nestle = require('./route/nestle/index.js');
 const caltrate = require('./route/caltrate/index.js');
+const wowprime = require('./route/wowprime/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ limit: '5mb' }));
@@ -38,6 +39,7 @@ app.use('/hexagon', hexagon);
 app.use('/hsinTung', hsinTung);
 app.use('/nestle', nestle);
 app.use('/caltrate', caltrate);
+app.use('/wowprime', wowprime);
 app.use('/line', line);
 app.use('/fb', fb);
 app.use('/google', google);
