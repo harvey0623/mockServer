@@ -1,21 +1,24 @@
-const { wowprimeAxios } = require("../../utility/axios/wowprime.js");
-const wmSign = require('../../utility/crypto/mmrm.js');
-const isDev = process.env.NODE_ENV === 'dev';
-const access_token = isDev ? process.env.MMRM_ACCESS_TOKEN : process.env.CUSTOM_ACCESS_TOKEN;
+const { tradeAxios } = require("../../utility/axios/wowprime.js");
+const { wm_sign, wm_aes, wm_decode } = require('../../utility/crypto/wowprime.js');
 
 const wowprimeDao = {
-   transactionList(payload) {
-      let signText = wmSign({
-         "member_access_token": access_token,
-         "request_parameter": { ...payload },
-         "timestamp": "2019/01/01 10:00:05"
+   tradeList(payload) {
+      let signText = wm_sign({
+         request_parameter: {
+            url: payload.url,
+            payload: wm_aes(JSON.stringify(payload.payload))
+         },
+         timestamp : "2021/07/01 14:35:02"
       });
-      return wowprimeAxios({
-         url: '',
+      return tradeAxios({
+         url: '/function/encrypt_relay',
          method: 'post',
          data: { sign: signText }
       }).then(res => {
-         return res.data;
+         let response = res.data;
+         let decodeData = wm_decode(response.results.data.payload);
+         response.results.data.payload = decodeData;
+         return response;
       }).catch(err => {
          console.log(err);
       });
