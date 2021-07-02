@@ -17,7 +17,7 @@ const wowprimeDao = {
       }).then(res => {
          let response = res.data;
          let decodeData = wm_decode(response.results.data.payload);
-         response.results.data.payload = decodeData;
+         response.results.data.payload = JSON.parse(decodeData);
          return response;
       }).catch(err => {
          console.log(err);
