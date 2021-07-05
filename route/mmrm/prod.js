@@ -147,6 +147,11 @@ router.post('/search_coupon_available_store', async (req, res) => {
    res.json(result);
 });
 
+router.post('/store_information', async (req, res) => {
+   let result = await storeDao.storeInfo(req.body);
+   res.json(result);
+});
+
 //===coupon
 router.post('/my_coupon_list', async (req, res) => {
    let result = await couponDao.couponList(req.body);
