@@ -142,8 +142,13 @@ router.post('/brand_information', async (req, res) => {
 });
 
 //===store
-router.post('/search_coupon_available_store', async (req, res) => {
+router.post('/search_store', async (req, res) => {
    let result = await storeDao.searchStore(req.body);
+   res.json(result);
+});
+
+router.post('/search_coupon_available_store', async (req, res) => {
+   let result = await storeDao.searchStoreByCoupon(req.body);
    res.json(result);
 });
 
