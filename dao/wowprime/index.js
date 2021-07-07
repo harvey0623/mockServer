@@ -5,6 +5,7 @@ const wowprimeDao = {
    tradeList(payload) {
       let signText = wm_sign({
          request_parameter: {
+            member_access_token: '202bda34-12e7-4ae8-bc6f-c39d1519bd19',
             url: payload.url,
             payload: wm_aes(JSON.stringify(payload.payload))
          },

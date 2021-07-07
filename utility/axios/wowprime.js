@@ -1,6 +1,6 @@
 const axios = require('axios');
 const tradeAxios = axios.create({
-   baseURL: '',
+   baseURL: 'https://wowprime-app-uat.wowapp.com.tw/api',
    headers: {
       'Content-Type': 'application/json',
       'Accept-Language': 'zh-TW',
