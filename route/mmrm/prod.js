@@ -144,16 +144,18 @@ router.post('/brand_information', async (req, res) => {
 //===store
 router.post('/search_store', async (req, res) => {
    let result = await storeDao.searchStore(req.body);
-   res.json(result);
-});
-
-router.post('/search_coupon_available_store', async (req, res) => {
-   let result = await storeDao.searchStoreByCoupon(req.body);
-   res.json(result);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
 });
 
 router.post('/store_information', async (req, res) => {
    let result = await storeDao.storeInfo(req.body);
+   let statusCode = result.rcrm.RC === 'C01' ? 200 : 400;
+   res.status(statusCode).json(result);
+});
+
+router.post('/search_coupon_available_store', async (req, res) => {
+   let result = await storeDao.searchStoreByCoupon(req.body);
    res.json(result);
 });
 
