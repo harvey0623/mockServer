@@ -2,8 +2,8 @@ const axios = require('axios');
 const qs = require('qs');
 
 const social = {
-   async getLineToken(code) {
-      return await axios({
+   getLineToken(code) {
+      return axios({
          url: 'https://api.line.me/oauth2/v2.1/token',
          method: 'post',
          headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -20,8 +20,8 @@ const social = {
          return { status: false, id_token: '' };
       });
    },
-   async getLineProfile(id_token) {
-      return await axios({
+   getLineProfile(id_token) {
+      return axios({
          url: 'https://api.line.me/oauth2/v2.1/verify',
          method: 'post',
          headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -35,8 +35,8 @@ const social = {
          return { status: false, profile: null };
       });
    },
-   async getFbToken(code) {
-      return await axios({
+   getFbToken(code) {
+      return axios({
          url: 'https://graph.facebook.com/v9.0/oauth/access_token',
          method: 'get',
          params: {
@@ -51,8 +51,8 @@ const social = {
          return { status: false, access_token: '' };
       });
    },
-   async getFbProfile(access_token) {
-      return await axios({
+   getFbProfile(access_token) {
+      return axios({
          url: 'https://graph.facebook.com/me',
          method: 'get',
          params: { 
@@ -65,8 +65,8 @@ const social = {
          return { status: false, profile: null }
       });
    },
-   async getGoogleToken(code) {
-      return await axios({
+   getGoogleToken(code) {
+      return axios({
          url: 'https://oauth2.googleapis.com/token',
          method: 'post',
          headers: { 'content-type': 'application/x-www-form-urlencoded' },
@@ -83,8 +83,8 @@ const social = {
          return { status: false, access_token: '' };
       });
    },
-   async getGoogleProfile(access_token) {
-      return await axios({
+   getGoogleProfile(access_token) {
+      return axios({
          url: 'https://www.googleapis.com/oauth2/v3/userinfo',
          method: 'get',
          params: { access_token }

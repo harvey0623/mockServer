@@ -2,7 +2,7 @@ const nestleAxios = require("../../utility/axios/nestle.js");
 const wmSign = require('../../utility/crypto/mmrm.js');
 
 const nestleDao = {
-   async redeem(payload) {
+   redeem(payload) {
       let signText = wmSign({
          request_parameter: { ...payload },
          timestamp: '2019/01/01 10:00:05'
@@ -15,7 +15,7 @@ const nestleDao = {
          return res.data;
       })
    },
-   async check(payload) {
+   check(payload) {
       let signText = wmSign({
          request_parameter: { ...payload },
          timestamp: '2019/01/01 10:00:05'

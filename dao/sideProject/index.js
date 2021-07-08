@@ -1,7 +1,7 @@
 const axios = require('axios');
 const projectDao = {
-   async autoComplete(payload) {
-      return await axios({
+   autoComplete(payload) {
+      return axios({
          url: 'http://suggestqueries.google.com/complete/search?client=firefox',
          mehtod: 'get',
          params: {

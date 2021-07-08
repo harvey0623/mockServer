@@ -25,8 +25,6 @@ const wm_decode = function (input) {
    return encrypted.toString(CryptoJS.enc.Utf8);
 }
 
-// console.log(decode('lp6SfPMP/uTYCDXUGssYkU0BnGW4VT505HX2kUqQjOk='))
-
 module.exports = {
    wm_sign,
    wm_aes,

@@ -1,6 +1,6 @@
 const axios = require('axios');
 const hexagonAxios = axios.create({
-   baseURL: process.env.HEXAGON_BASE_URL,
+   baseURL: 'http://crm-tt.wishmobile.com:3019/api',
    headers: {
       'Content-Type': 'application/json',
    },

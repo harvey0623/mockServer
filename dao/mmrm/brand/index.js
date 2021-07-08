@@ -1,11 +1,11 @@
 const mmrmAxios = require('../../../utility/axios/mmrm.js');
 const wmSign = require('../../../utility/crypto/mmrm.js');
 const brandDao = {
-   async searchBrand() {
+   searchBrand() {
       let signText = wmSign({
          "timestamp": "2019/01/01 10:00:05"
       });
-      return await mmrmAxios({
+      return mmrmAxios({
          url: '/brand/search_brand',
          method: 'post',
          data: { sign: signText }
@@ -15,12 +15,12 @@ const brandDao = {
          console.log(err);
       });
    },
-   async getBrandInfo(payload) {
+   getBrandInfo(payload) {
       let signText = wmSign({
          "request_parameter": { ...payload },
          "timestamp": "2019/01/01 10:00:05"
       });
-      return await mmrmAxios({
+      return mmrmAxios({
          url: '/brand/brand_information',
          method: 'post',
          data: { sign: signText }

@@ -1,6 +1,6 @@
 const CryptoJS = require("crypto-js");
-const sign_key = process.env.CUSTOM_SIGN_KEY;
-const aes_key = process.env.CUSTOM_AES_KEY;
+const sign_key = '6916fb7ad79dad7650a0135a34333d4a';
+const aes_key = 'e502ac1b5d82a009b1bbe2f33915554c';
 
 const wm_sign = function(body) {
    var payload = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(JSON.stringify(body)));
@@ -24,8 +24,6 @@ const decode = function (input) {
    var encrypted = CryptoJS.AES.decrypt(input, key, { iv: iv });
    return encrypted.toString(CryptoJS.enc.Utf8);
 }
-
-// console.log(decode('lp6SfPMP/uTYCDXUGssYkU0BnGW4VT505HX2kUqQjOk='))
 
 module.exports = {
    wm_sign,

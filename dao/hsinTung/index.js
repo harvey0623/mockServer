@@ -3,7 +3,7 @@ const cryptoObj = require("../../utility/crypto/hsinTung.js");
 const HTY_API_KEY = '7e014f3a7350';
 
 const hsinTungDao = {
-   async getTerm(payload) {
+   getTerm(payload) {
       return hsinTungAxios({
          url: "/term/brief_term",
          method: "post",
@@ -15,7 +15,7 @@ const hsinTungDao = {
          },
       }).then(res => res.data);
    },
-   async login(payload) {
+   login(payload) {
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -50,7 +50,7 @@ const hsinTungDao = {
          }
       });
    },
-   async checkMobile(payload) {
+   checkMobile(payload) {
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -84,7 +84,7 @@ const hsinTungDao = {
          }
       });
    },
-   async checkEmail(payload) {
+   checkEmail(payload) {
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -118,7 +118,7 @@ const hsinTungDao = {
          }
       });
    },
-   async verifyMobile(payload) {
+   verifyMobile(payload) {
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -152,7 +152,7 @@ const hsinTungDao = {
          }
       });
    },
-   async searchStore(payload) {
+   searchStore(payload) {
       return hsinTungAxios({
          url: "/store/search_store",
          method: "post",
@@ -164,7 +164,7 @@ const hsinTungDao = {
          },
       }).then(res => res.data);
    },
-   async storeInformation(payload) {
+   storeInformation(payload) {
       return hsinTungAxios({
          url: "/store/store_information",
          method: "post",
@@ -176,7 +176,7 @@ const hsinTungDao = {
          },
       }).then(res => res.data);
    },
-   async add(payload) { //註冊
+   add(payload) { //註冊
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -210,7 +210,7 @@ const hsinTungDao = {
          }
       });
    },
-   async forget(payload) { //忘記密碼
+   forget(payload) { //忘記密碼
       let params = {
          "http_method": "POST",
          "merchant": "HTY",
@@ -244,7 +244,7 @@ const hsinTungDao = {
          }
       });
    },
-   async externalLogin(payload) { //第三方登入
+   externalLogin(payload) { //第三方登入
       let params = {
          "K": HTY_API_KEY,
          "Q1": payload.Q1,
